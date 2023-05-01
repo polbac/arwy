@@ -1,10 +1,9 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,15 +49,17 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  font-family: "Philosopher", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  margin:0;
-  padding:0;
-  min-height:100vh;
-  min-width:100vw;
-  background-color:black;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: black;
 }
 
 a {
@@ -66,10 +67,60 @@ a {
   text-decoration: none;
 }
 
-
-
-.folder{
-  color: pink;
+.folder {
+  color: blue;
   cursor: pointer;
-  text-align: center;;
+  position: absolute;
+}
+
+.folder .label {
+  background: blue;
+  color: white;
+  padding: 3px;
+}
+
+.window {
+  background: gray;
+  position: absolute;
+  z-index: 10;
+}
+
+.window .bar {
+  background: #9605ff;
+  height: 35px;
+  color: #00ff06;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: "VT323";
+  font-size: 1.5rem;
+}
+.window .bar .close {
+  cursor: pointer;
+}
+
+.window .content {
+  background: #023ff9;
+  padding: 15px;
+  color: white;
+}
+
+.medium-window {
+  max-width: 640px;
+  max-height: 340px;
+}
+
+.medium-window .content {
+  max-height: 460px;
+  overflow-x: scroll;
+}
+
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
 }

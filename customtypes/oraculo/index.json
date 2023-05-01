@@ -1,0 +1,22 @@
+{
+  "id": "oraculo",
+  "label": "oraculo",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "cartas": {
+        "type": "Group",
+        "config": {
+          "label": "cartas",
+          "fields": {
+            "carta": {
+              "type": "Image",
+              "config": { "label": "carta", "constraint": {}, "thumbnails": [] }
+            }
+          }
+        }
+      }
+    }
+  }
+}

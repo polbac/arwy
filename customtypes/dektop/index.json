@@ -1,0 +1,14 @@
+{
+  "id": "dektop",
+  "label": "Dektop",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "background": {
+        "type": "Image",
+        "config": { "label": "background", "constraint": {}, "thumbnails": [] }
+      }
+    }
+  }
+}
