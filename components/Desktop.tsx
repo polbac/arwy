@@ -1,6 +1,6 @@
 import { PrismicNextImage } from "@prismicio/next";
 import React, { FC } from "react";
-import { Bio } from "./sections/bio";
+import { Bio } from "./sections/Bio";
 import { Folder } from "./Folder";
 import {
   usePrismicDocumentByUID,

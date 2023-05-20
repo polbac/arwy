@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { Window, WindowSize } from "../Window";
-import { PrismicRichText, useSinglePrismicDocument } from "@prismicio/react";
+import { useSinglePrismicDocument } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 
 export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
@@ -38,7 +38,10 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
       {oraculo?.data.cartas.map(
         (card, index) =>
           index === showIndex && (
-            <div style={{ minWidth: "320px", textAlign: "center" }}>
+            <div
+              style={{ minWidth: "320px", textAlign: "center" }}
+              key={`image-${index}`}
+            >
               <PrismicNextImage field={card.carta} height={300} />
             </div>
           )

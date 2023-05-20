@@ -25,12 +25,12 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
       y={y}
       data={music}
     >
-      {music?.data.music.map((music) => (
-        <div>
+      {music?.data.music.map(() => (
+        <>
           <PrismicRichText field={music.title} />
           <PrismicNextImage field={music.image} />
           <PrismicLink field={music.link}>Link</PrismicLink>
-        </div>
+        </>
       ))}
       {/* <PrismicRichText field={bio?.data.title} />
       <PrismicRichText field={bio?.data.body} />
