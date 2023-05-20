@@ -80,9 +80,17 @@ a {
 }
 
 .window {
-  background: gray;
   position: absolute;
   z-index: 10;
+}
+
+.window-transition {
+  transform: scale(0, 0);
+  transition: transform 0.15s ease;
+}
+
+.window-transition.in {
+  transform: scale(1, 1);
 }
 
 .window .bar {
