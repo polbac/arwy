@@ -132,3 +132,14 @@ a {
   background-size: cover;
   background-position: center center;
 }
+
+.link {
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.link:hover {
+  background: pink;
+  color: white;
+}

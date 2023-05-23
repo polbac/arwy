@@ -14,7 +14,7 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
   onClose,
 }) => {
   const [music] = useSinglePrismicDocument("music");
-
+  console.log("music", music);
   return (
     <Window
       onClose={onClose}
@@ -25,11 +25,11 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
       y={y}
       data={music}
     >
-      {music?.data.music.map(() => (
+      {music?.data.music.map((a) => (
         <>
-          <PrismicRichText field={music.title} />
-          <PrismicNextImage field={music.image} />
-          <PrismicLink field={music.link}>Link</PrismicLink>
+          <PrismicRichText field={a.title} />
+          <PrismicNextImage field={a.image} />
+          <PrismicLink field={a.link}>Link</PrismicLink>
         </>
       ))}
       {/* <PrismicRichText field={bio?.data.title} />

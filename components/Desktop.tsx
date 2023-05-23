@@ -8,6 +8,7 @@ import {
 } from "@prismicio/react";
 import { Music } from "./sections/Music";
 import { Oraculo } from "./sections/Oraculo";
+import { Poesia } from "./sections/Poesia";
 
 export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
   const [background] = useSinglePrismicDocument("dektop");
@@ -22,7 +23,7 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
       <Folder label={"música"} Component={Music} />
       <Folder label={"bio"} Component={Bio} />
       <Folder label={"audiovisual"} Component={Bio} />
-      <Folder label={"poesía"} Component={Bio} />
+      <Folder label={"poesía"} Component={Poesia} />
       <Folder label={"visiones"} Component={Bio} />
       <Folder label={"oráculo"} Component={Oraculo} />
       {children}

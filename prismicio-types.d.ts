@@ -192,11 +192,48 @@ export type OraculoDocument<Lang extends string = string> =
     "oraculo",
     Lang
   >;
+/** Content for text documents */
+interface TextDocumentData {
+  /**
+   * title field in *text*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title: prismicT.KeyTextField;
+  /**
+   * body field in *text*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.body
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  body: prismicT.RichTextField;
+}
+/**
+ * text document from Prismic
+ *
+ * - **API ID**: `text`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TextDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithoutUID<Simplify<TextDocumentData>, "text", Lang>;
 export type AllDocumentTypes =
   | BioDocument
   | DektopDocument
   | MusicDocument
-  | OraculoDocument;
+  | OraculoDocument
+  | TextDocument;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -216,6 +253,8 @@ declare module "@prismicio/client" {
       OraculoDocumentData,
       OraculoDocumentDataCartasItem,
       OraculoDocument,
+      TextDocumentData,
+      TextDocument,
       AllDocumentTypes,
     };
   }
