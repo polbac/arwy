@@ -5,6 +5,12 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
+#cursor_icon {
+  position: absolute;
+  z-index: 9999999999;
+  top: 0;
+  left: 0;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {

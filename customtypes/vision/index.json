@@ -1,0 +1,30 @@
+{
+  "id": "vision",
+  "label": "vision",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "visiones": {
+        "type": "Group",
+        "config": {
+          "label": "visiones",
+          "fields": {
+            "titulo": {
+              "type": "Text",
+              "config": { "label": "titulo", "placeholder": "" }
+            },
+            "imagen": {
+              "type": "Image",
+              "config": {
+                "label": "imagen",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

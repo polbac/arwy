@@ -112,16 +112,6 @@ export interface MusicDocumentDataMusicItem {
    */
   title: prismicT.RichTextField;
   /**
-   * link field in *music → music*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: music.music[].link
-   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-   *
-   */
-  link: prismicT.LinkField;
-  /**
    * image field in *music → music*
    *
    * - **Field Type**: Image
@@ -131,6 +121,16 @@ export interface MusicDocumentDataMusicItem {
    *
    */
   image: prismicT.ImageField<never>;
+  /**
+   * links field in *music → music*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: music.music[].links
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  links: prismicT.RichTextField;
 }
 /**
  * music document from Prismic
@@ -145,6 +145,35 @@ export type MusicDocument<Lang extends string = string> =
   prismicT.PrismicDocumentWithoutUID<
     Simplify<MusicDocumentData>,
     "music",
+    Lang
+  >;
+/** Content for nube rosa documents */
+interface NubeRosaDocumentData {
+  /**
+   * image field in *nube rosa*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nube_rosa.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismicT.ImageField<never>;
+}
+/**
+ * nube rosa document from Prismic
+ *
+ * - **API ID**: `nube_rosa`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NubeRosaDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithoutUID<
+    Simplify<NubeRosaDocumentData>,
+    "nube_rosa",
     Lang
   >;
 /** Content for oraculo documents */
@@ -228,12 +257,69 @@ interface TextDocumentData {
  */
 export type TextDocument<Lang extends string = string> =
   prismicT.PrismicDocumentWithoutUID<Simplify<TextDocumentData>, "text", Lang>;
+/** Content for vision documents */
+interface VisionDocumentData {
+  /**
+   * visiones field in *vision*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vision.visiones[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  visiones: prismicT.GroupField<Simplify<VisionDocumentDataVisionesItem>>;
+}
+/**
+ * Item in vision → visiones
+ *
+ */
+export interface VisionDocumentDataVisionesItem {
+  /**
+   * titulo field in *vision → visiones*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vision.visiones[].titulo
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  titulo: prismicT.KeyTextField;
+  /**
+   * imagen field in *vision → visiones*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vision.visiones[].imagen
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  imagen: prismicT.ImageField<never>;
+}
+/**
+ * vision document from Prismic
+ *
+ * - **API ID**: `vision`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type VisionDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithoutUID<
+    Simplify<VisionDocumentData>,
+    "vision",
+    Lang
+  >;
 export type AllDocumentTypes =
   | BioDocument
   | DektopDocument
   | MusicDocument
+  | NubeRosaDocument
   | OraculoDocument
-  | TextDocument;
+  | TextDocument
+  | VisionDocument;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -250,11 +336,16 @@ declare module "@prismicio/client" {
       MusicDocumentData,
       MusicDocumentDataMusicItem,
       MusicDocument,
+      NubeRosaDocumentData,
+      NubeRosaDocument,
       OraculoDocumentData,
       OraculoDocumentDataCartasItem,
       OraculoDocument,
       TextDocumentData,
       TextDocument,
+      VisionDocumentData,
+      VisionDocumentDataVisionesItem,
+      VisionDocument,
       AllDocumentTypes,
     };
   }

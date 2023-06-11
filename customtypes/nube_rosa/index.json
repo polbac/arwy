@@ -1,0 +1,14 @@
+{
+  "id": "nube_rosa",
+  "label": "nube rosa",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "image": {
+        "type": "Image",
+        "config": { "label": "image", "constraint": {}, "thumbnails": [] }
+      }
+    }
+  }
+}
