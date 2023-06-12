@@ -7,10 +7,6 @@ desktop:
 textos:
     - glow en textos
 
-musica:
-    - la primer ventana tiene las carpetas con el nombre del proyecto abajo
-    - cuando clickeas te abre una nueva ventanita con el texto, links a la derecha
-
 nube rosa:
     - 
 

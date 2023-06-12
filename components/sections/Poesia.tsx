@@ -1,11 +1,6 @@
 import { FC, useState } from "react";
 import { Window, WindowSize } from "../Window";
-import {
-  PrismicRichText,
-  useAllPrismicDocumentsByType,
-  useSinglePrismicDocument,
-} from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
+import { useAllPrismicDocumentsByType } from "@prismicio/react";
 import { random } from "@/utils/random";
 
 export const Poesia: FC<{ x: number; y: number; onClose: () => void }> = ({
@@ -51,13 +46,13 @@ export const Poesia: FC<{ x: number; y: number; onClose: () => void }> = ({
             setList((prevList) => prevList.filter((p) => p.id !== text.id))
           }
           title={text.data.title}
-          className={"bio medium-window"}
+          className={"poesia medium-window"}
           windowSize={WindowSize.MEDIUM}
           x={x + random(200)}
           y={y + random(200)}
           data={[]}
         >
-          {text.data.body[0].text}
+          <div className="glow">{text.data.body[0].text}</div>
         </Window>
       ))}
     </>

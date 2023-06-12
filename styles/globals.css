@@ -10,6 +10,7 @@
   z-index: 9999999999;
   top: 0;
   left: 0;
+  pointer-events: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -101,6 +102,13 @@ a {
 
 .window .bar {
   background: #9605ff;
+  background: linear-gradient(
+    180deg,
+    rgba(150, 5, 255, 1) 0%,
+    rgba(121, 9, 82, 1) 35%,
+    rgba(134, 0, 255, 1) 100%
+  );
+
   height: 35px;
   color: #00ff06;
   padding: 5px;
@@ -111,6 +119,7 @@ a {
   letter-spacing: 3px;
   font-family: "VT323";
   font-size: 1.5rem;
+  cursor: default;
 }
 .window .bar .close {
   cursor: pointer;
@@ -120,6 +129,7 @@ a {
   background: #023ff9;
   padding: 15px;
   color: white;
+  box-shadow: 10px 10px 10px #00ff06;
 }
 
 .medium-window {
@@ -130,6 +140,7 @@ a {
 .medium-window .content {
   max-height: 460px;
   overflow-x: scroll;
+  border: 6px ridge #9605ff;
 }
 
 .desktop {
@@ -148,4 +159,9 @@ a {
 .link:hover {
   background: pink;
   color: white;
+}
+
+.glow {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073,
+    0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
 }

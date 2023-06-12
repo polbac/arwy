@@ -20,7 +20,7 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
       className="desktop"
       style={{ backgroundImage: `url(${backgroundImageUrl})` }}
     >
-      <Folder label={"música"} Component={Music} />
+      <Folder label={"m u s i c a"} Component={Music} />
       <Folder label={"bio"} Component={Bio} />
       <Folder label={"audiovisual"} Component={Bio} />
       <Folder label={"poesía"} Component={Poesia} />
