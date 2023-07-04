@@ -7,8 +7,7 @@ desktop:
 textos:
     - glow en textos
 
-nube rosa:
-    - 
+
 
 visiones:
     - en la primer ventana vemos iconos de imagenes
@@ -25,3 +24,7 @@ window:
 audiovisual:
     - titulo + link
         - ver si se puede armar una ui tipo navegador web
+
+nube rosa
+   - listado como musica (iconos carpetas)
+   - cuando clickeas abre ventanita con imagen + texto

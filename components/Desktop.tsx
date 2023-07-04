@@ -26,6 +26,8 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
       <Folder label={"poesía"} Component={Poesia} />
       <Folder label={"visiones"} Component={Bio} />
       <Folder label={"oráculo"} Component={Oraculo} />
+
+      
       {children}
     </div>
   );

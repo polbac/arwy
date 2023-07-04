@@ -37,8 +37,9 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
         data={music}
       >
         <div style={{ display: "flex", flexWrap: "wrap" }}>
-          {music?.data.music.map((mus) => (
+          {music?.data.music.map((mus, index) => (
             <article
+              key={index}
               style={{
                 textAlign: "center",
                 width: "25%",

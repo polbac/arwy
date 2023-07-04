@@ -43,6 +43,18 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
               key={`image-${index}`}
             >
               <PrismicNextImage field={card.carta} height={300} />
+              <br />
+              <button
+                style={{
+                  cursor: "pointer",
+                  border: "3px ridge white",
+                  padding: "6px",
+                  marginTop: "10px",
+                  background: "pink",
+                }}
+              >
+                Click para obetener una carta
+              </button>
             </div>
           )
       )}

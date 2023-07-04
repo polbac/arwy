@@ -6,6 +6,63 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
   [KeyType in keyof T]: T[KeyType];
 };
+/** Content for audiovisual documents */
+interface AudiovisualDocumentData {
+  /**
+   * audiovisual field in *audiovisual*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: audiovisual.audiovisual[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  audiovisual: prismicT.GroupField<
+    Simplify<AudiovisualDocumentDataAudiovisualItem>
+  >;
+}
+/**
+ * Item in audiovisual → audiovisual
+ *
+ */
+export interface AudiovisualDocumentDataAudiovisualItem {
+  /**
+   * titulo field in *audiovisual → audiovisual*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: audiovisual.audiovisual[].titulo
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  titulo: prismicT.KeyTextField;
+  /**
+   * link field in *audiovisual → audiovisual*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: audiovisual.audiovisual[].link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  link: prismicT.KeyTextField;
+}
+/**
+ * audiovisual document from Prismic
+ *
+ * - **API ID**: `audiovisual`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AudiovisualDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithoutUID<
+    Simplify<AudiovisualDocumentData>,
+    "audiovisual",
+    Lang
+  >;
 /** Content for bio documents */
 interface BioDocumentData {
   /**
@@ -150,16 +207,52 @@ export type MusicDocument<Lang extends string = string> =
 /** Content for nube rosa documents */
 interface NubeRosaDocumentData {
   /**
-   * image field in *nube rosa*
+   * nube_rosa field in *nube rosa*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nube_rosa.nube_rosa[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  nube_rosa: prismicT.GroupField<Simplify<NubeRosaDocumentDataNubeRosaItem>>;
+}
+/**
+ * Item in nube rosa → nube_rosa
+ *
+ */
+export interface NubeRosaDocumentDataNubeRosaItem {
+  /**
+   * title field in *nube rosa → nube_rosa*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nube_rosa.nube_rosa[].title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title: prismicT.KeyTextField;
+  /**
+   * imagen field in *nube rosa → nube_rosa*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: nube_rosa.image
-   * - **Tab**: Main
+   * - **API ID Path**: nube_rosa.nube_rosa[].imagen
    * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  image: prismicT.ImageField<never>;
+  imagen: prismicT.ImageField<never>;
+  /**
+   * text field in *nube rosa → nube_rosa*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nube_rosa.nube_rosa[].text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismicT.RichTextField;
 }
 /**
  * nube rosa document from Prismic
@@ -313,6 +406,7 @@ export type VisionDocument<Lang extends string = string> =
     Lang
   >;
 export type AllDocumentTypes =
+  | AudiovisualDocument
   | BioDocument
   | DektopDocument
   | MusicDocument
@@ -329,6 +423,9 @@ declare module "@prismicio/client" {
   }
   namespace Content {
     export type {
+      AudiovisualDocumentData,
+      AudiovisualDocumentDataAudiovisualItem,
+      AudiovisualDocument,
       BioDocumentData,
       BioDocument,
       DektopDocumentData,
@@ -337,6 +434,7 @@ declare module "@prismicio/client" {
       MusicDocumentDataMusicItem,
       MusicDocument,
       NubeRosaDocumentData,
+      NubeRosaDocumentDataNubeRosaItem,
       NubeRosaDocument,
       OraculoDocumentData,
       OraculoDocumentDataCartasItem,

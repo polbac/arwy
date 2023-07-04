@@ -4,7 +4,9 @@
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  cursor: none;
 }
+
 #cursor_icon {
   position: absolute;
   z-index: 9999999999;
@@ -76,7 +78,7 @@ a {
 
 .folder {
   color: blue;
-  cursor: pointer;
+
   position: absolute;
 }
 
@@ -119,7 +121,6 @@ a {
   letter-spacing: 3px;
   font-family: "VT323";
   font-size: 1.5rem;
-  cursor: default;
 }
 .window .bar .close {
   cursor: pointer;

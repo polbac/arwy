@@ -1,0 +1,26 @@
+{
+  "id": "audiovisual",
+  "label": "audiovisual",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "audiovisual": {
+        "type": "Group",
+        "config": {
+          "label": "audiovisual",
+          "fields": {
+            "titulo": {
+              "type": "Text",
+              "config": { "label": "titulo", "placeholder": "" }
+            },
+            "link": {
+              "type": "Text",
+              "config": { "label": "link", "placeholder": "" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
