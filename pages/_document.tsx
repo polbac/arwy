@@ -13,6 +13,8 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Philosopher&family=VT323&display=swap"
           rel="stylesheet"
         />
+        <link href="/font/stylesheet.css" rel="stylesheet" />
+        <link href="/font3/stylesheet.css" rel="stylesheet" />
         <img src={"/nube_icon.png"} id="cursor_icon" />
       </body>
     </Html>

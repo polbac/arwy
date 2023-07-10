@@ -1,6 +1,7 @@
 import { PrismicNextImage } from "@prismicio/next";
 import React, { FC } from "react";
 import { Bio } from "./sections/Bio";
+import { Audiovisual } from "./sections/Audiovisual";
 import { Folder } from "./Folder";
 import {
   usePrismicDocumentByUID,
@@ -22,12 +23,11 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
     >
       <Folder label={"m u s i c a"} Component={Music} />
       <Folder label={"bio"} Component={Bio} />
-      <Folder label={"audiovisual"} Component={Bio} />
+      <Folder label={"audiovisual"} Component={Audiovisual} />
       <Folder label={"poesía"} Component={Poesia} />
       <Folder label={"visiones"} Component={Bio} />
       <Folder label={"oráculo"} Component={Oraculo} />
 
-      
       {children}
     </div>
   );

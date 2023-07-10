@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Harmond';
+    src: url('Harmond-ExtraBoldExpanded.woff2') format('woff2'),
+        url('Harmond-ExtraBoldExpanded.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Harmond';
+    src: url('Harmond-SemBdItaCond.woff2') format('woff2'),
+        url('Harmond-SemBdItaCond.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Harmond';
+    src: url('Harmond-ExtBdItaExp.woff2') format('woff2'),
+        url('Harmond-ExtBdItaExp.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Harmond';
+    src: url('Harmond-SemiBoldCondensed.woff2') format('woff2'),
+        url('Harmond-SemiBoldCondensed.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+

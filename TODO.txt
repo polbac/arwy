@@ -18,8 +18,6 @@ oraculo:
     - agregar un texto explicando: "click para obtener carta"
         - cuando clickas frena, volves a apretar y vuelve a barajear
 
-window:
-    - ver q onda el marquee en el titulo
 
 audiovisual:
     - titulo + link

@@ -29,6 +29,7 @@ export const Poesia: FC<{ x: number; y: number; onClose: () => void }> = ({
         x={x}
         y={y}
         data={[]}
+        color={"pink"}
       >
         {texts?.map((text, index) => (
           <article key={`ti-${index}`}>
@@ -51,6 +52,7 @@ export const Poesia: FC<{ x: number; y: number; onClose: () => void }> = ({
           x={x + random(200)}
           y={y + random(200)}
           data={[]}
+          color={"pink"}
         >
           <div className="glow">{text.data.body[0].text}</div>
         </Window>

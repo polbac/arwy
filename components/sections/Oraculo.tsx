@@ -34,6 +34,7 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
       x={x}
       y={y}
       data={oraculo}
+      color={"black"}
     >
       {oraculo?.data.cartas.map(
         (card, index) =>

@@ -32,7 +32,20 @@ export const Window: FC<{
   onClose: () => void;
   windowSize: WindowSize;
   data: unknown;
-}> = ({ children, title, className, x, y, onClose, windowSize, data }) => {
+  color: string;
+  subtitle?: JSX.Element;
+}> = ({
+  children,
+  title,
+  className,
+  x,
+  y,
+  onClose,
+  windowSize,
+  data,
+  color,
+  subtitle,
+}) => {
   const { getNextZIndex } = useContext(DestkopBrowser);
   const ref = useRef();
   const [position, setPosition] = useState({
@@ -73,13 +86,12 @@ export const Window: FC<{
     >
       <article
         className={`${className} window`}
-        style={{ zIndex: position.zIndex }}
+        style={{ zIndex: position.zIndex, background: color }}
       >
         <div className="window-transition" ref={ref}>
           <div className="bar">
-            <Marquee>
-              <div>{title}</div>
-            </Marquee>
+            <div style={{ flex: 1 }}>{title}</div>
+
             <div className="close" onClick={() => onClose()}>
               <svg
                 width="20px"
@@ -97,7 +109,9 @@ export const Window: FC<{
               </svg>
             </div>
           </div>
-          <div className="content">{data ? children : <>cargando...</>}</div>
+          <div className="content" style={{ background: color }}>
+            {data ? children : <>cargando...</>}
+          </div>
         </div>
       </article>
     </Draggable>

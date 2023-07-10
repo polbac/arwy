@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Tribal';
+    src: url('Tribal.woff2') format('woff2'),
+        url('Tribal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

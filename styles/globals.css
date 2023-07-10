@@ -117,20 +117,24 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-family: "VT323";
-  font-size: 1.5rem;
+  letter-spacing: 33px;
+  text-align: center;
+  font-family: "Tribal";
+  font-size: 12px;
 }
 .window .bar .close {
   cursor: pointer;
 }
 
 .window .content {
-  background: #023ff9;
   padding: 15px;
   color: white;
   box-shadow: 10px 10px 10px #00ff06;
+}
+
+.window .content img {
+  width: 100%;
+  height: auto;
 }
 
 .medium-window {

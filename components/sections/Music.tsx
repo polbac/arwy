@@ -29,12 +29,13 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
     <>
       <Window
         onClose={onClose}
-        title="(♥‿♥) ٩͡๏̯͡๏۶ツ【★】 ͗m u s i c a۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗W͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗E͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗I͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗R͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗D͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗G͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗E͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗N͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗E͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗R͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗A͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗T͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗O͔͔۪͔͔͔͔͗͗͗͗۫͗͗۰͔͔͗͗۰͔͔۪͔͔͔͔͗͗͗͗۫͗͗R͔͔۪͔͔͔͗͗͗͗۫͗۰͔͗ 【★】ツ ٩͡๏̯͡๏۶(♥‿♥)"
+        title="musica"
         className={"music medium-window"}
         windowSize={WindowSize.MEDIUM}
         x={x}
         y={y}
         data={music}
+        color={"linear-gradient(to right, #5433ff, #20bdff, #a5fecb)"}
       >
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           {music?.data.music.map((mus, index) => (
@@ -79,6 +80,7 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
           x={x + random(200)}
           y={y + random(200)}
           data={[]}
+          color={"black"}
         >
           <div style={{ display: "flex", minWidth: "500px" }}>
             <div style={{ width: "50%" }}>
