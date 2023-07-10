@@ -29,8 +29,8 @@ export const Audiovisual: FC<{ x: number; y: number; onClose: () => void }> = ({
       }
     >
       <ul style={{ margin: "1rem" }}>
-        {audiovisual?.data.audiovisual.map((item) => (
-          <li>
+        {audiovisual?.data.audiovisual.map((item, index) => (
+          <li key={index}>
             <a
               href={item.link}
               style={{ textDecoration: "underline", color: "blue" }}
