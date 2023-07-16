@@ -2,29 +2,51 @@ import { FC, useEffect, useState } from "react";
 import { Window, WindowSize } from "../Window";
 import { useSinglePrismicDocument } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
+import Marquee from "react-fast-marquee";
+
+let timer;
 
 export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
   x,
   y,
   onClose,
 }) => {
+  const [isStop, setIsStop] = useState(false);
   const [oraculo] = useSinglePrismicDocument("oraculo");
   const [showIndex, setShowIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState(0);
 
   useEffect(() => {
-    setMaxIndex(oraculo?.data.cartas.length);
+    if (oraculo?.data.cartas.length) {
+      setMaxIndex(oraculo?.data.cartas.length);
+    }
   }, [oraculo]);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (maxIndex > 0) {
+    if (maxIndex === 0) {
+      return;
+    }
+
+    timer = setInterval(() => {
+      if (maxIndex > 0 && !isStop) {
         setShowIndex((index) => (index === maxIndex - 1 ? 0 : index + 1));
       }
     }, 100);
-    return () => clearInterval(timer);
-  }, [maxIndex]);
+    return () => (timer ? clearInterval(timer) : undefined);
+  }, [maxIndex, isStop]);
 
+  const stop = (e) => {
+    if (isStop) {
+      setIsStop(false);
+      return;
+    }
+
+    setIsStop(true);
+
+    e.preventDefault();
+
+    return false;
+  };
   return (
     <Window
       onClose={onClose}
@@ -40,25 +62,39 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
         (card, index) =>
           index === showIndex && (
             <div
-              style={{ minWidth: "320px", textAlign: "center" }}
+              style={{
+                minWidth: "320px",
+                minHeight: "300px",
+                textAlign: "center",
+              }}
               key={`image-${index}`}
             >
-              <PrismicNextImage field={card.carta} height={300} />
-              <br />
-              <button
-                style={{
-                  cursor: "pointer",
-                  border: "3px ridge white",
-                  padding: "6px",
-                  marginTop: "10px",
-                  background: "pink",
-                }}
-              >
-                Click para obetener una carta
-              </button>
+              <PrismicNextImage alt="" field={card.carta} height={150} />
             </div>
           )
       )}
+      <div>
+        <button
+          onClick={stop}
+          style={{
+            pointerEvents: "default",
+            cursor: "pointer",
+            fontFamily: "Philosopher",
+            padding: "6px",
+            marginTop: "10px",
+            color: "white",
+            width: "100%",
+
+            background: isStop
+              ? "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)"
+              : "linear-gradient(19deg, rgba(0,36,17,1) 0%, rgba(9,121,30,1) 35%, rgba(7,255,0,1) 100%)",
+          }}
+        >
+          <Marquee>
+            {isStop ? "COMENZAR ORACULO NUEVAMENTE" : "OBTENER UNA CARTA"}
+          </Marquee>
+        </button>
+      </div>
     </Window>
   );
 };

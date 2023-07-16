@@ -113,16 +113,32 @@ export type BioDocument<Lang extends string = string> =
 /** Content for Dektop documents */
 interface DektopDocumentData {
   /**
-   * background field in *Dektop*
+   * desktop field in *Dektop*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dektop.desktop[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  desktop: prismicT.GroupField<Simplify<DektopDocumentDataDesktopItem>>;
+}
+/**
+ * Item in Dektop → desktop
+ *
+ */
+export interface DektopDocumentDataDesktopItem {
+  /**
+   * image field in *Dektop → desktop*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: dektop.background
-   * - **Tab**: Main
+   * - **API ID Path**: dektop.desktop[].image
    * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  background: prismicT.ImageField<never>;
+  image: prismicT.ImageField<never>;
 }
 /**
  * Dektop document from Prismic
@@ -429,6 +445,7 @@ declare module "@prismicio/client" {
       BioDocumentData,
       BioDocument,
       DektopDocumentData,
+      DektopDocumentDataDesktopItem,
       DektopDocument,
       MusicDocumentData,
       MusicDocumentDataMusicItem,

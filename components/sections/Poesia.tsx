@@ -33,7 +33,10 @@ export const Poesia: FC<{ x: number; y: number; onClose: () => void }> = ({
       >
         {texts?.map((text, index) => (
           <article key={`ti-${index}`}>
-            <h6 className="link" onClick={() => handleClickText(text)}>
+            <h6
+              className="link articleTitle"
+              onClick={() => handleClickText(text)}
+            >
               {text.data.title}
             </h6>
           </article>

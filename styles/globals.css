@@ -122,6 +122,11 @@ a {
   font-family: "Tribal";
   font-size: 12px;
 }
+
+.articleTitle {
+  font-family: "Tribal";
+}
+
 .window .bar .close {
   cursor: pointer;
 }

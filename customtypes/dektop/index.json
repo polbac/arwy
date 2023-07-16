@@ -5,9 +5,17 @@
   "status": true,
   "json": {
     "Main": {
-      "background": {
-        "type": "Image",
-        "config": { "label": "background", "constraint": {}, "thumbnails": [] }
+      "desktop": {
+        "type": "Group",
+        "config": {
+          "label": "desktop",
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": { "label": "image", "constraint": {}, "thumbnails": [] }
+            }
+          }
+        }
       }
     }
   }
