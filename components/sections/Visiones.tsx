@@ -24,7 +24,7 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
       return newList;
     });
   };
-  console.log("visiones", visiones);
+
   return (
     <>
       <Window
@@ -35,9 +35,9 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
         x={x}
         y={y}
         data={visiones}
-        color={"linear-gradient(to right, #5433ff, #20bdff, #a5fecb)"}
+        color={"#caba40"}
       >
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", minWidth: "400px" }}>
           {visiones?.data.visiones.map((vision, index) => (
             <article
               key={index}

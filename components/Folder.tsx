@@ -2,10 +2,12 @@ import { getRandomXYPositions } from "@/utils/browser";
 import React, { FC, useEffect, useState } from "react";
 import Draggable from "react-draggable";
 
-export const Folder: FC<{ label: string; Component: () => JSX.Element }> = ({
-  label,
-  Component,
-}) => {
+export const Folder: FC<{
+  label: string;
+  Component: () => JSX.Element;
+  color?: string;
+  iconName?: string;
+}> = ({ label, Component, color, iconName }) => {
   const [showComponent, setShowComponent] = useState(false);
   const { x: startX, y: startY } = getRandomXYPositions();
   const [currentFolderPosition, setCurrentFolderPosition] = useState({
@@ -50,18 +52,18 @@ export const Folder: FC<{ label: string; Component: () => JSX.Element }> = ({
           className="folder"
           style={{ textAlign: "center", width: "90px" }}
         >
-          <svg
-            fill="#0000FF"
-            width="50px"
-            height="50px"
-            viewBox="0 0 22 22"
-            xmlns="http://www.w3.org/2000/svg"
-            id="memory-folder"
-          >
-            <path d="M2 3H9V4H10V5H20V6H21V18H20V19H2V18H1V4H2V3M3 7V17H19V7H3Z" />
-          </svg>
+          <img src={`/${iconName || "iconFolder"}.png`} width="50" />
 
-          <div className="label">{label}</div>
+          <div
+            className="label"
+            style={{
+              color: "white",
+              fontFamily: "helvetica",
+              fontSize: "12px",
+            }}
+          >
+            {label}
+          </div>
         </article>
       </Draggable>
       {showComponent && (

@@ -35,7 +35,7 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
         x={x}
         y={y}
         data={music}
-        color={"linear-gradient(to right, #5433ff, #20bdff, #a5fecb)"}
+        color={"#3f67d6"}
       >
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           {music?.data.music.map((mus, index) => (

@@ -15,6 +15,7 @@ export default function Document() {
         />
         <link href="/font/stylesheet.css" rel="stylesheet" />
         <link href="/font3/stylesheet.css" rel="stylesheet" />
+        <link href="/margsa/stylesheet.css" rel="stylesheet" />
         <img src={"/nube_icon.png"} id="cursor_icon" />
       </body>
     </Html>

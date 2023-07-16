@@ -5,6 +5,9 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
   cursor: none;
+  font-smooth: auto;
+  font-smooth: never;
+  font-smooth: always;
 }
 
 #cursor_icon {
@@ -80,12 +83,18 @@ a {
   color: blue;
 
   position: absolute;
+  text-shadow: 5px 5px 5px pink;
+  min-width: 150px;
+  text-align: center;
 }
 
 .folder .label {
-  background: blue;
   color: white;
   padding: 3px;
+  font-family: "Maragsa Display";
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .window {
@@ -94,12 +103,10 @@ a {
 }
 
 .window-transition {
-  transform: scale(0, 0);
   transition: transform 0.15s ease;
 }
 
 .window-transition.in {
-  transform: scale(1, 1);
 }
 
 .window .bar {
@@ -112,15 +119,16 @@ a {
   );
 
   height: 35px;
-  color: #00ff06;
+  color: white;
   padding: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  letter-spacing: 33px;
+  letter-spacing: 3px;
   text-align: center;
-  font-family: "Tribal";
-  font-size: 12px;
+  font-family: "Maragsa Display";
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
 .articleTitle {
@@ -134,7 +142,6 @@ a {
 .window .content {
   padding: 15px;
   color: white;
-  box-shadow: 10px 10px 10px #00ff06;
 }
 
 .window .content img {

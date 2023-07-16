@@ -29,7 +29,7 @@ export const Poesia: FC<{ x: number; y: number; onClose: () => void }> = ({
         x={x}
         y={y}
         data={[]}
-        color={"pink"}
+        color={"#3edd77"}
       >
         {texts?.map((text, index) => (
           <article key={`ti-${index}`}>

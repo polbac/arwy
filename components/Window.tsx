@@ -89,7 +89,17 @@ export const Window: FC<{
         style={{ zIndex: position.zIndex, background: color }}
       >
         <div className="window-transition" ref={ref}>
-          <div className="bar">
+          <div
+            className="bar"
+            style={{
+              background: `linear-gradient(
+    180deg,
+    rgba(150, 5, 255, 1) 0%,
+    ${color} 35%,
+    rgba(134, 0, 255, 1) 100%
+  )`,
+            }}
+          >
             <div style={{ flex: 1 }}>{title}</div>
 
             <div className="close" onClick={() => onClose()}>

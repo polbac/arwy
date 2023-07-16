@@ -18,9 +18,7 @@ export const Bio: FC<{ x: number; y: number; onClose: () => void }> = ({
       x={x}
       y={y}
       data={bio}
-      color={
-        "linear-gradient(19deg, rgba(2,0,36,1) 0%, rgba(70,9,121,1) 35%, rgba(255,0,239,1) 100%)"
-      }
+      color={"#f900ff"}
     >
       <div
         style={{

@@ -35,7 +35,7 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
         x={x}
         y={y}
         data={nubeRosa}
-        color={"linear-gradient(to right, #5433ff, #20bdff, #a5fecb)"}
+        color={"pink"}
       >
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           {nubeRosa?.data.nube_rosa.map((nube, index) => (
