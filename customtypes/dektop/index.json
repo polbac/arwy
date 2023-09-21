@@ -16,6 +16,30 @@
             }
           }
         }
+      },
+      "color": {
+        "type": "Color",
+        "config": { "label": "Color", "placeholder": "" }
+      },
+      "option": {
+        "type": "Select",
+        "config": {
+          "label": "option",
+          "placeholder": "",
+          "options": ["centrada", "ajustada a los bordes"]
+        }
+      },
+      "fotos": {
+        "type": "Group",
+        "config": {
+          "label": "fotos",
+          "fields": {
+            "foto": {
+              "type": "Image",
+              "config": { "label": "foto", "constraint": {}, "thumbnails": [] }
+            }
+          }
+        }
       }
     }
   }

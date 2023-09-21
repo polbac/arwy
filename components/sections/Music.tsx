@@ -90,8 +90,7 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
               />
             </div>
             <div style={{ paddingLeft: "30px" }}>
-              <PrismicRichText field={mus.title} />
-              <PrismicRichText field={mus.link} />
+              <PrismicRichText field={mus.links} />
             </div>
           </div>
         </Window>

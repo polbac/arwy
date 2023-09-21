@@ -57,7 +57,9 @@ export const Poesia: FC<{ x: number; y: number; onClose: () => void }> = ({
           data={[]}
           color={"pink"}
         >
-          <div className="glow">{text.data.body[0].text}</div>
+          <div className="glow">
+            {text.data.body[0].text.replaceAll(" ", "_")}
+          </div>
         </Window>
       ))}
     </>

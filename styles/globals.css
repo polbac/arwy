@@ -4,12 +4,18 @@
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-  cursor: none;
+  cursor: crosshair;
   font-smooth: auto;
   font-smooth: never;
   font-smooth: always;
 }
-
+a {
+  cursor: crosshair;
+}
+a:hover {
+  text-shadow: 5px 5px 5px pink;
+  cursor: cell;
+}
 #cursor_icon {
   position: absolute;
   z-index: 9999999999;
@@ -61,8 +67,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: "Philosopher", "Trebuchet MS", "Lucida Sans Unicode",
-    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-family: helvetica, Arial, sans-serif;
 }
 
 body {
@@ -136,7 +141,6 @@ a {
 }
 
 .window .bar .close {
-  cursor: pointer;
 }
 
 .window .content {
@@ -169,7 +173,7 @@ a {
 
 .link {
   text-decoration: underline;
-  cursor: pointer;
+  cursor: crosshair;
   font-size: 2rem;
 }
 

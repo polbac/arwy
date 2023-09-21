@@ -63,13 +63,12 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
           index === showIndex && (
             <div
               style={{
-                minWidth: "320px",
-                minHeight: "300px",
+                width: "220px",
                 textAlign: "center",
               }}
               key={`image-${index}`}
             >
-              <PrismicNextImage alt="" field={card.carta} height={150} />
+              <PrismicNextImage alt="" field={card.carta} width={"100%"} />
             </div>
           )
       )}
@@ -83,7 +82,7 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
             padding: "6px",
             marginTop: "10px",
             color: "white",
-            width: "100%",
+            width: "220px",
 
             background: isStop
               ? "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)"

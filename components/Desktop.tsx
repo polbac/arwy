@@ -24,44 +24,44 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div
       className="desktop"
-      style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+      style={{ backgroundImage: `url(${backgroundImageUrl})`,backgroundPosition:"center", }}
     >
       <Folder
         label={"música"}
         Component={Music}
-        color="#44db7a"
-        iconName="iconMusic"
+        iconName="iconRosa"
+        color="red"
       />
-      <Folder
-        label={"bio"}
-        Component={Bio}
-        color="#f41e36"
-        iconName="iconBio"
-      />
+      <Folder label={"bio"} Component={Bio} iconName="iconRosa" color="red" />
       <Folder
         label={"audiovisual"}
         Component={Audiovisual}
-        color="#4567d5"
-        iconName="iconAudiovisual"
+        iconName="iconRosa"
+        color="red"
       />
       <Folder
         label={"poesía"}
         Component={Poesia}
-        color="#0fff40"
-        iconName="iconPoesia"
+        iconName="iconRosa"
+        color="red"
       />
-      <Folder label={"visiones"} Component={Visiones} color="#f09deb" />
+      <Folder
+        label={"visiones"}
+        Component={Visiones}
+        iconName="iconRosa"
+        color="red"
+      />
       <Folder
         label={"oráculo"}
         Component={Oraculo}
-        color="#384178"
-        iconName="iconOraculo"
+        iconName="iconRosa"
+        color="red"
       />
       <Folder
         label={"nube rosa"}
         Component={NubeRosa}
-        color="#fb81ba"
         iconName="iconRosa"
+        color="pink"
       />
 
       {children}

@@ -123,6 +123,39 @@ interface DektopDocumentData {
    *
    */
   desktop: prismicT.GroupField<Simplify<DektopDocumentDataDesktopItem>>;
+  /**
+   * Color field in *Dektop*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dektop.color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/color
+   *
+   */
+  color: prismicT.ColorField;
+  /**
+   * option field in *Dektop*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dektop.option
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  option: prismicT.SelectField<"centrada" | "ajustada a los bordes">;
+  /**
+   * fotos field in *Dektop*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dektop.fotos[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  fotos: prismicT.GroupField<Simplify<DektopDocumentDataFotosItem>>;
 }
 /**
  * Item in Dektop → desktop
@@ -139,6 +172,22 @@ export interface DektopDocumentDataDesktopItem {
    *
    */
   image: prismicT.ImageField<never>;
+}
+/**
+ * Item in Dektop → fotos
+ *
+ */
+export interface DektopDocumentDataFotosItem {
+  /**
+   * foto field in *Dektop → fotos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dektop.fotos[].foto
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  foto: prismicT.ImageField<never>;
 }
 /**
  * Dektop document from Prismic
@@ -446,6 +495,7 @@ declare module "@prismicio/client" {
       BioDocument,
       DektopDocumentData,
       DektopDocumentDataDesktopItem,
+      DektopDocumentDataFotosItem,
       DektopDocument,
       MusicDocumentData,
       MusicDocumentDataMusicItem,

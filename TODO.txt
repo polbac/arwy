@@ -1,0 +1,13 @@
+1. Hacer este listado
+- Se superpone ventana con icono
+- poesia que se vean como haikus (espacios y enters)
+- visiones que aparezca el icono como imagen
+- chequear las carpetas del root no anda bien el drag
+- desktop options
+- desktop imagenes
+- arreglar oraculo
+- poner en el preview la imagen q esta de protector de pantalla
+
+2. Mobile
+
+3. Flasherin
