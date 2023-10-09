@@ -1,6 +1,6 @@
 1. Hacer este listado
 - Se superpone ventana con icono
-- chequear las carpetas del root no anda bien el drag
 - desktop imagenes
 
 
+45765

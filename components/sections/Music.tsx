@@ -35,7 +35,7 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
         x={x}
         y={y}
         data={music}
-        color={"#3f67d6"}
+        color={"#ccffcc"}
       >
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           {music?.data.music.map((mus, index) => (
@@ -46,21 +46,16 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
                 width: "25%",
                 marginBottom: "20px",
                 cursor: "pointer",
+                padding: "20px",
               }}
               onClick={() => handleClickText(mus)}
             >
-              <svg
-                fill="#ffffff"
-                width="50px"
-                height="50px"
-                viewBox="0 0 22 22"
-                xmlns="http://www.w3.org/2000/svg"
-                id="memory-folder"
-              >
-                <path d="M2 3H9V4H10V5H20V6H21V18H20V19H2V18H1V4H2V3M3 7V17H19V7H3Z" />
-              </svg>
+              <img src={`/iconFolder.png`} width="100%" />
 
-              <div className="label">
+              <div
+                className="label"
+                style={{ color: "black", fontSize: "13px" }}
+              >
                 <PrismicRichText field={mus.title} />
               </div>
             </article>

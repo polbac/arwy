@@ -25,7 +25,9 @@ export const Bio: FC<{ x: number; y: number; onClose: () => void }> = ({
           textAlign: "center",
           marginBottom: "2rem",
           lineHeight: "2rem",
-          fontFamily: "Maragsa",
+          fontFamily: "arial",
+          color: "white",
+          textShadow: "0 0 8px blue",
         }}
       >
         <PrismicRichText field={bio?.data.body} />

@@ -40,6 +40,22 @@
             }
           }
         }
+      },
+      "imagenes_fotantes": {
+        "type": "Group",
+        "config": {
+          "label": "imagenes_fotantes",
+          "fields": {
+            "imagen": {
+              "type": "Image",
+              "config": {
+                "label": "imagen",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
       }
     }
   }

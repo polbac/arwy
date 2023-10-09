@@ -2,13 +2,10 @@ import { getRandomXYPositions } from "@/utils/browser";
 import React, { FC, useEffect, useState } from "react";
 import Draggable from "react-draggable";
 
-export const Folder: FC<{
-  label: string;
-  Component: () => JSX.Element;
-  color?: string;
-  iconName?: string;
-}> = ({ label, Component, color, iconName }) => {
-  const [showComponent, setShowComponent] = useState(false);
+export const FloatingImage: FC<{
+  image?: string;
+}> = ({ image }) => {
+  console.log({ image });
   const { x: startX, y: startY } = getRandomXYPositions();
   const [currentFolderPosition, setCurrentFolderPosition] = useState({
     x: 0,
@@ -40,43 +37,16 @@ export const Folder: FC<{
         onDrag={() => setDragging(true)}
         onStop={(e: { clientX: number; clientY: number }) => {
           setCurrentFolderPosition({ x: e.clientX, y: e.clientY });
-
-          if (!dragging) {
-            setShowComponent(true);
-          }
-
-          setDragging(false);
         }}
       >
-        <article
-          className="folder"
-          style={{ textAlign: "center", width: "90px", cursor: "pointer" }}
-        >
+        <article style={{ position: "absolute", cursor: "move" }}>
           <img
-            src={`/${iconName || "iconFolder"}.png`}
-            width="50"
+            src={image.imagen.url}
+            width="150"
             style={{ pointerEvents: "none" }}
           />
-
-          <div
-            className="label"
-            style={{
-              color: "white",
-              fontFamily: "helvetica",
-              fontSize: "12px",
-            }}
-          >
-            {label}
-          </div>
         </article>
       </Draggable>
-      {showComponent && (
-        <Component
-          x={currentFolderPosition.x}
-          y={currentFolderPosition.y}
-          onClose={() => setShowComponent(false)}
-        />
-      )}
     </>
   );
 };

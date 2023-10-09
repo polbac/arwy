@@ -24,7 +24,7 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
       return newList;
     });
   };
-  console.log(visiones);
+
   return (
     <>
       <Window
@@ -35,7 +35,7 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
         x={x}
         y={y}
         data={visiones}
-        color={"#caba40"}
+        color={"rgb(208 124 152)"}
       >
         <div style={{ display: "flex", flexWrap: "wrap", minWidth: "400px" }}>
           {visiones?.data.visiones.map((vision, index) => (

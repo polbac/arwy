@@ -156,6 +156,19 @@ interface DektopDocumentData {
    *
    */
   fotos: prismicT.GroupField<Simplify<DektopDocumentDataFotosItem>>;
+  /**
+   * imagenes_fotantes field in *Dektop*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dektop.imagenes_fotantes[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  imagenes_fotantes: prismicT.GroupField<
+    Simplify<DektopDocumentDataImagenesFotantesItem>
+  >;
 }
 /**
  * Item in Dektop → desktop
@@ -188,6 +201,22 @@ export interface DektopDocumentDataFotosItem {
    *
    */
   foto: prismicT.ImageField<never>;
+}
+/**
+ * Item in Dektop → imagenes_fotantes
+ *
+ */
+export interface DektopDocumentDataImagenesFotantesItem {
+  /**
+   * imagen field in *Dektop → imagenes_fotantes*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dektop.imagenes_fotantes[].imagen
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  imagen: prismicT.ImageField<never>;
 }
 /**
  * Dektop document from Prismic
@@ -496,6 +525,7 @@ declare module "@prismicio/client" {
       DektopDocumentData,
       DektopDocumentDataDesktopItem,
       DektopDocumentDataFotosItem,
+      DektopDocumentDataImagenesFotantesItem,
       DektopDocument,
       MusicDocumentData,
       MusicDocumentDataMusicItem,

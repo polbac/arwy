@@ -2,17 +2,14 @@ import { PrismicNextImage } from "@prismicio/next";
 import React, { FC } from "react";
 import { Bio } from "./sections/Bio";
 import { Audiovisual } from "./sections/Audiovisual";
+import { FloatingImage } from "./FloatingImage";
 import { Folder } from "./Folder";
-import {
-  usePrismicDocumentByUID,
-  useSinglePrismicDocument,
-} from "@prismicio/react";
+import { useSinglePrismicDocument } from "@prismicio/react";
 import { Music } from "./sections/Music";
 import { Oraculo } from "./sections/Oraculo";
 import { Poesia } from "./sections/Poesia";
 import { Visiones } from "./sections/Visiones";
 import { NubeRosa } from "./sections/NubeRosa";
-import { Head } from "next/document";
 
 enum BackgroundPosition {
   CENTER = "centrada",
@@ -120,6 +117,10 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
             iconName="iconRosa"
             color="pink"
           />
+
+          {background?.data.imagenes_fotantes.map((flotante) => (
+            <FloatingImage image={flotante} />
+          ))}
 
           {children}
         </div>
