@@ -57,9 +57,14 @@ export const Poesia: FC<{ x: number; y: number; onClose: () => void }> = ({
           data={[]}
           color={"pink"}
         >
-          <div className="glow">
-            {text.data.body[0].text.replaceAll(" ", "_")}
-          </div>
+          <div
+            className="glow"
+            dangerouslySetInnerHTML={{
+              __html: text.data.body[0].text
+                .replaceAll(" ", "&ensp;")
+                .replaceAll(`\n`, "<br/>"),
+            }}
+          ></div>
         </Window>
       ))}
     </>

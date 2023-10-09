@@ -24,7 +24,7 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
       return newList;
     });
   };
-
+  console.log(visiones);
   return (
     <>
       <Window
@@ -46,12 +46,13 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
                 width: "25%",
                 marginBottom: "20px",
                 cursor: "pointer",
+                margin: "1rem",
               }}
               onClick={() => handleClickText(vision)}
             >
               <PrismicNextImage
-                field={vision.image}
-                style={{ height: "auto", width: "100%" }}
+                field={vision.imagen}
+                style={{ height: "100px", width: "auto" }}
               />
 
               <div className="label">{vision.titulo}</div>

@@ -4,6 +4,41 @@ import { getRandomXYPositions, getWindowPosition } from "@/utils/browser";
 import { FC, useContext, useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
 
+const TITLE_CHAR_MAPPER = {
+  w: "W̸̢̫̺͆̒́",
+  e: "E̸̼͍̫͐̓̔",
+  r: "R̵͎̦͓̒̿̚",
+  t: "T̵͉͍̼̐̓̓",
+  y: "Y̵̢͎̫͝͠",
+  u: "U̸͕̦͖͛͘͝",
+  i: "I̴̡̟̝͐̀",
+  o: "O̴̪͙̫͐̿̕",
+  p: "P̸͍̟͇̓̚̚",
+  a: "A̵̝̠̟͛̀̽",
+  s: "S̸͙͔͚̿̐͆",
+  d: "D̸͖͚̝͆̓͋",
+  f: "F̴͇̻͎̈́͆̈́",
+  g: "G̴̘͓̠̈́̒͐",
+  h: "H̵͉͙̟͆͐͠",
+  j: "J̴͍̘͍̽͊͘",
+  k: "K̵̻̺͍͌̾͝",
+  l: "L̴̝̼͖̈́̐͘",
+  n: "Ñ̴̼̦̒̀͘",
+  z: "Ź̴̦͙̟̓͘",
+  x: "X̵̞̠̟͆͆͘",
+  c: "C̴̙̟͛̔̿͜",
+  b: "B̸̟̪͋͝",
+  m: "M̴̢͎̒̓̚͜",
+};
+
+function asciiEffect(text: string): string {
+  console.log({ text });
+  return (text || "")
+    .split("")
+    .map((s) => TITLE_CHAR_MAPPER[s.toLocaleLowerCase()] ?? s)
+    .join("");
+}
+
 export enum WindowSize {
   SMALL = "small",
   MEDIUM = "medium",
@@ -100,7 +135,7 @@ export const Window: FC<{
   )`,
             }}
           >
-            <div style={{ flex: 1 }}>{title}</div>
+            <div style={{ flex: 1 }}>{asciiEffect(title)}</div>
 
             <div className="close" onClick={() => onClose()}>
               <svg

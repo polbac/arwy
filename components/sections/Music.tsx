@@ -74,7 +74,7 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
           onClose={() =>
             setList((prevList) => prevList.filter((p) => p.title !== mus.title))
           }
-          title={<PrismicRichText field={mus.title} />}
+          title={mus.title[0].text}
           className={"music-detail medium-window"}
           windowSize={WindowSize.MEDIUM}
           x={x + random(200)}
