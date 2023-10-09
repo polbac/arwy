@@ -75,6 +75,10 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
         }}
       >
         <div className="desktop-container">
+          {background?.data.imagenes_fotantes.map((flotante, index) => (
+            <FloatingImage image={flotante} key={index} />
+          ))}
+
           <Folder
             label={"música"}
             Component={Music}
@@ -117,10 +121,6 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
             iconName="iconRosa"
             color="pink"
           />
-
-          {background?.data.imagenes_fotantes.map((flotante, index) => (
-            <FloatingImage image={flotante} key={index} />
-          ))}
 
           {children}
         </div>
