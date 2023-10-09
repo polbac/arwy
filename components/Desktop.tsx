@@ -118,8 +118,8 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
             color="pink"
           />
 
-          {background?.data.imagenes_fotantes.map((flotante) => (
-            <FloatingImage image={flotante} />
+          {background?.data.imagenes_fotantes.map((flotante, index) => (
+            <FloatingImage image={flotante} key={index} />
           ))}
 
           {children}
