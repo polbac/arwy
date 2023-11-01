@@ -4,6 +4,27 @@ import { getRandomXYPositions, getWindowPosition } from "@/utils/browser";
 import { FC, useContext, useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
 
+const getMobileDetect = (userAgent: NavigatorID["userAgent"]) => {
+  const isAndroid = () => Boolean(userAgent.match(/Android/i));
+  const isIos = () => Boolean(userAgent.match(/iPhone|iPad|iPod/i));
+  const isOpera = () => Boolean(userAgent.match(/Opera Mini/i));
+  const isWindows = () => Boolean(userAgent.match(/IEMobile/i));
+
+  const isMobile = () =>
+    Boolean(isAndroid() || isIos() || isOpera() || isWindows());
+
+  return {
+    isMobile,
+  };
+};
+
+const useMobileDetect = () => {
+  useEffect(() => {}, []);
+  const userAgent =
+    typeof navigator === "undefined" ? "SSR" : navigator.userAgent;
+  return getMobileDetect(userAgent);
+};
+
 const TITLE_CHAR_MAPPER = {
   w: "W̸̢̫̺͆̒́",
   e: "E̸̼͍̫͐̓̔",
@@ -89,6 +110,8 @@ export const Window: FC<{
     zIndex: 0,
   });
 
+  const { isMobile } = useMobileDetect();
+
   useEffect(
     () =>
       setPosition({
@@ -118,6 +141,7 @@ export const Window: FC<{
         x: position.x,
         y: position.y,
       }}
+      disabled={isMobile()}
     >
       <article
         className={`${className} window`}

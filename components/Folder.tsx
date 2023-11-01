@@ -37,10 +37,13 @@ export const Folder: FC<{
           x: position.x,
           y: position.y,
         }}
-        onDrag={() => setDragging(true)}
+        onDrag={() => {
+          console.log("onDrag");
+          setDragging(true);
+        }}
         onStop={(e: { clientX: number; clientY: number }) => {
           setCurrentFolderPosition({ x: e.clientX, y: e.clientY });
-
+          console.log("onStop");
           if (!dragging) {
             setShowComponent(true);
           }
