@@ -33,6 +33,7 @@ export const Audiovisual: FC<{ x: number; y: number; onClose: () => void }> = ({
           <li key={index}>
             <a
               href={item.link}
+              target="_blank"
               style={{ textDecoration: "underline", color: "blue" }}
             >
               {item.titulo}
