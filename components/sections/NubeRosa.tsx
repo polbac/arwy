@@ -46,12 +46,18 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
                 width: "25%",
                 marginBottom: "20px",
                 cursor: "pointer",
+                padding: "20px",
               }}
               onClick={() => handleClickText(nube)}
             >
               <img src={`/iconFolder.png`} width="100%" />
 
-              <div className="label">{nube.title}</div>
+              <div
+                className="label"
+                style={{ color: "black", fontSize: "13px" }}
+              >
+                {nube.title}
+              </div>
             </article>
           ))}
         </div>

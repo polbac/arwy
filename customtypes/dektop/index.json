@@ -56,6 +56,26 @@
             }
           }
         }
+      },
+      "imagenes_jpeg": {
+        "type": "Group",
+        "config": {
+          "label": "imagenes_jpeg",
+          "fields": {
+            "imagen": {
+              "type": "Image",
+              "config": {
+                "label": "imagen",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "nombre": {
+              "type": "Text",
+              "config": { "label": "nombre", "placeholder": "" }
+            }
+          }
+        }
       }
     }
   }

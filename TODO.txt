@@ -1,6 +1,22 @@
-1. Hacer este listado
-- Se superpone ventana con icono
-- desktop imagenes
+VISIONES
+- Que solo se abra una imagen
+- Ver de agregar zoom (alina perkins)
 
+DESKTOP
+- imagenes jpg
 
-45765
+BIO
+- Texto 2
+- Pdf download
+
+Ventanas
+- Ver de agrandar ventana
+
+NUBE ROSA TAMAÑO IGUALAR A MUSICA
+DONE
+
+AUDIOVISUAL
+- mas lineheight entre items
+DONE!
+
+POKEMON TAMAÑO

@@ -19,6 +19,7 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
   useEffect(() => {
     if (oraculo?.data.cartas.length) {
       setMaxIndex(oraculo?.data.cartas.length);
+      console.log(oraculo?.data.cartas);
     }
   }, [oraculo]);
 
@@ -47,6 +48,7 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
 
     return false;
   };
+
   return (
     <Window
       onClose={onClose}
@@ -68,7 +70,7 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
               }}
               key={`image-${index}`}
             >
-              <PrismicNextImage alt="" field={card.carta} width={"100%"} />
+              <PrismicNextImage alt="" field={card.carta} width={800} />
             </div>
           )
       )}

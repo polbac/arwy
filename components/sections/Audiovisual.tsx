@@ -28,7 +28,7 @@ export const Audiovisual: FC<{ x: number; y: number; onClose: () => void }> = ({
         </div>
       }
     >
-      <ul style={{ margin: "1rem" }}>
+      <ul style={{ margin: "1rem", lineHeight: "30px" }}>
         {audiovisual?.data.audiovisual.map((item, index) => (
           <li key={index}>
             <a

@@ -98,6 +98,28 @@ interface BioDocumentData {
    *
    */
   image: prismicT.ImageField<never>;
+  /**
+   * body2 field in *bio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio.body2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  body2: prismicT.RichTextField;
+  /**
+   * cv_file field in *bio*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio.cv_file
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  cv_file: prismicT.LinkToMediaField;
 }
 /**
  * bio document from Prismic
@@ -169,6 +191,19 @@ interface DektopDocumentData {
   imagenes_fotantes: prismicT.GroupField<
     Simplify<DektopDocumentDataImagenesFotantesItem>
   >;
+  /**
+   * imagenes_jpeg field in *Dektop*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dektop.imagenes_jpeg[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  imagenes_jpeg: prismicT.GroupField<
+    Simplify<DektopDocumentDataImagenesJpegItem>
+  >;
 }
 /**
  * Item in Dektop → desktop
@@ -217,6 +252,32 @@ export interface DektopDocumentDataImagenesFotantesItem {
    *
    */
   imagen: prismicT.ImageField<never>;
+}
+/**
+ * Item in Dektop → imagenes_jpeg
+ *
+ */
+export interface DektopDocumentDataImagenesJpegItem {
+  /**
+   * imagen field in *Dektop → imagenes_jpeg*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dektop.imagenes_jpeg[].imagen
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  imagen: prismicT.ImageField<never>;
+  /**
+   * nombre field in *Dektop → imagenes_jpeg*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dektop.imagenes_jpeg[].nombre
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  nombre: prismicT.KeyTextField;
 }
 /**
  * Dektop document from Prismic
@@ -526,6 +587,7 @@ declare module "@prismicio/client" {
       DektopDocumentDataDesktopItem,
       DektopDocumentDataFotosItem,
       DektopDocumentDataImagenesFotantesItem,
+      DektopDocumentDataImagenesJpegItem,
       DektopDocument,
       MusicDocumentData,
       MusicDocumentDataMusicItem,
