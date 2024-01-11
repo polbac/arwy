@@ -75,28 +75,40 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
           data={[]}
           color={"black"}
         >
-          <div
-            onClick={() => setShowZoom((sz) => !sz)}
-            style={{
-              display: "flex",
-              minWidth: "500px",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
-            <PrismicNextImage
-              field={vision.imagen}
-              style={{ height: "auto", width: "100%", cursor: "zoom-in" }}
-            />
+          {!showZoom && (
+            <div
+              onClick={() => setShowZoom((sz) => !sz)}
+              style={{
+                display: "flex",
+                width: "500px",
+                minHeight: "500px",
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
+              <PrismicNextImage
+                field={vision.imagen}
+                style={{ height: "auto", width: "100%", cursor: "zoom-in" }}
+              />
+            </div>
+          )}
 
-            {showZoom && (
+          {showZoom && (
+            <div
+              onClick={() => setShowZoom((sz) => !sz)}
+              style={{
+                display: "flex",
+                width: "500px",
+                minHeight: "500px",
+                position: "relative",
+                overflow: "scroll",
+              }}
+            >
               <div
                 style={{
                   width: "250%",
                   height: "250%",
                   position: "absolute",
-                  top: "-75%",
-                  left: "-75%",
                   cursor: "zoom-out",
                 }}
               >
@@ -105,8 +117,8 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
                   style={{ height: "auto", width: "100%" }}
                 />
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </Window>
       ))}
     </>
