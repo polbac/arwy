@@ -43,7 +43,7 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
               key={index}
               style={{
                 textAlign: "center",
-                width: "25%",
+                width: "18%",
                 marginBottom: "20px",
                 cursor: "pointer",
                 padding: "20px",

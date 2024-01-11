@@ -1,11 +1,8 @@
 import { FC, useState } from "react";
 import { Window, WindowSize } from "../Window";
-import {
-  PrismicLink,
-  PrismicRichText,
-  useAllPrismicDocumentsByType,
-  useSinglePrismicDocument,
-} from "@prismicio/react";
+import { useSinglePrismicDocument } from "@prismicio/react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 import { PrismicNextImage } from "@prismicio/next";
 import { random } from "@/utils/random";
 
@@ -16,6 +13,7 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
 }) => {
   const [visiones] = useSinglePrismicDocument("vision");
   const [list, setList] = useState([]);
+  const [showZoom, setShowZoom] = useState(false);
 
   const handleClickText = (vision) => {
     setList((l) => {
@@ -24,7 +22,7 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
       return newList;
     });
   };
-
+  console.log("showZoom", showZoom);
   return (
     <>
       <Window
@@ -77,14 +75,37 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
           data={[]}
           color={"black"}
         >
-          <div style={{ display: "flex", minWidth: "500px" }}>
-            <div style={{ width: "50%" }}>
-              <PrismicNextImage
-                field={vision.imagen}
-                style={{ height: "auto", width: "100%" }}
-              />
-            </div>
-            <div style={{ paddingLeft: "30px" }}>{vision.titulo}</div>
+          <div
+            onClick={() => setShowZoom((sz) => !sz)}
+            style={{
+              display: "flex",
+              minWidth: "500px",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <PrismicNextImage
+              field={vision.imagen}
+              style={{ height: "auto", width: "100%", cursor: "zoom-in" }}
+            />
+
+            {showZoom && (
+              <div
+                style={{
+                  width: "250%",
+                  height: "250%",
+                  position: "absolute",
+                  top: "-75%",
+                  left: "-75%",
+                  cursor: "zoom-out",
+                }}
+              >
+                <PrismicNextImage
+                  field={vision.imagen}
+                  style={{ height: "auto", width: "100%" }}
+                />
+              </div>
+            )}
           </div>
         </Window>
       ))}

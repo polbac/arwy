@@ -5237,7 +5237,7 @@
     "destr" "^1.2.2"
     "flat" "^5.0.2"
 
-"react-dom@^16.8 || ^17.0 || ^18.0", "react-dom@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0", "react-dom@^17.0.0 || ^18.0.0", "react-dom@^18.2.0", "react-dom@>= 16.3.0", "react-dom@>= 16.8.0 || 18.0.0", "react-dom@>=16.4.0", "react-dom@>=16.8.0", "react-dom@17 || 18", "react-dom@18", "react-dom@18.2.0":
+"react-dom@^16.8 || ^17.0 || ^18.0", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0", "react-dom@^17.0.0 || ^18.0.0", "react-dom@^18.2.0", "react-dom@>= 16.3.0", "react-dom@>= 16.8.0 || 18.0.0", "react-dom@>=16.4.0", "react-dom@>=16.8.0", "react-dom@17 || 18", "react-dom@18", "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -5270,6 +5270,11 @@
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
+
+"react-medium-image-zoom@^5.1.9":
+  "integrity" "sha512-VOlqStMbztbHftQvl8wwD2oQvcNQjA9dUtNtIxZmwnP7BIcWfsDS5jRH7vJ/R94EtweiuCCAMnoTh7w5RkkJeg=="
+  "resolved" "https://registry.npmjs.org/react-medium-image-zoom/-/react-medium-image-zoom-5.1.9.tgz"
+  "version" "5.1.9"
 
 "react-property@2.0.0":
   "integrity" "sha512-kzmNjIgU32mO4mmH5+iUyrqlpFQhF8K2k7eZ4fdLSOPFrD1XgEuSBv9LDEgxRXTMBqMd8ppT0x6TIzqE5pdGdw=="

@@ -1,13 +1,13 @@
 VISIONES
-- Que solo se abra una imagen
+- Que solo se abra una imagen. DONE
 - Ver de agregar zoom (alina perkins)
 
 DESKTOP
-- imagenes jpg
+- imagenes jpg. DONE
 
 BIO
-- Texto 2
-- Pdf download
+- Texto 2. DONE
+- Pdf download. DONE
 
 Ventanas
 - Ver de agrandar ventana

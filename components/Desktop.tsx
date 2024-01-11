@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import { Bio } from "./sections/Bio";
 import { Audiovisual } from "./sections/Audiovisual";
 import { FloatingImage } from "./FloatingImage";
+import { FloatingJpg } from "./FloatingJpg";
 import { Folder } from "./Folder";
 import { useSinglePrismicDocument } from "@prismicio/react";
 import { Music } from "./sections/Music";
@@ -77,6 +78,10 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className="desktop-container">
           {background?.data.imagenes_fotantes.map((flotante, index) => (
             <FloatingImage image={flotante} key={index} />
+          ))}
+
+          {background?.data?.imagenes_jpeg?.map((jpg, index) => (
+            <FloatingJpg imagen={jpg} key={index} />
           ))}
 
           <Folder

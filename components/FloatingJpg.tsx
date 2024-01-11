@@ -2,9 +2,10 @@ import { getRandomXYPositions } from "@/utils/browser";
 import React, { FC, useEffect, useState } from "react";
 import Draggable from "react-draggable";
 
-export const FloatingImage: FC<{
-  image?: string;
-}> = ({ image }) => {
+export const FloatingJpg: FC<{
+  imagen?: string;
+}> = ({ imagen }) => {
+  console.log({ imagen });
   const { x: startX, y: startY } = getRandomXYPositions();
   const [currentFolderPosition, setCurrentFolderPosition] = useState({
     x: 0,
@@ -40,9 +41,13 @@ export const FloatingImage: FC<{
       >
         <article style={{ position: "absolute", cursor: "move" }}>
           <img
-            src={image.imagen.url}
-            width="150"
-            style={{ pointerEvents: "none" }}
+            src={imagen.imagen.url}
+            intrinsicsize="80x80"
+            style={{
+              pointerEvents: "none",
+              maxWidth: "60px",
+              objectFit: "cover",
+            }}
           />
         </article>
       </Draggable>
