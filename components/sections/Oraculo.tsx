@@ -4,8 +4,6 @@ import { useSinglePrismicDocument } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import Marquee from "react-fast-marquee";
 
-let timer;
-
 export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
   x,
   y,
@@ -15,34 +13,19 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
   const [oraculo] = useSinglePrismicDocument("oraculo");
   const [showIndex, setShowIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState(0);
+  const [barajar, setBarajar] = useState(true);
 
   useEffect(() => {
     if (oraculo?.data.cartas.length) {
       setMaxIndex(oraculo?.data.cartas.length);
-      console.log(oraculo?.data.cartas);
     }
   }, [oraculo]);
 
-  useEffect(() => {
-    if (maxIndex === 0) {
-      return;
-    }
-
-    timer = setInterval(() => {
-      if (maxIndex > 0 && !isStop) {
-        setShowIndex((index) => (index === maxIndex - 1 ? 0 : index + 1));
-      }
-    }, 100);
-    return () => (timer ? clearInterval(timer) : undefined);
-  }, [maxIndex, isStop]);
-
   const stop = (e) => {
-    if (isStop) {
-      setIsStop(false);
-      return;
-    }
-
-    setIsStop(true);
+    setBarajar((s) => {
+      setShowIndex(Math.floor(Math.random() * maxIndex));
+      return !s;
+    });
 
     e.preventDefault();
 
@@ -60,20 +43,38 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
       data={oraculo}
       color={"black"}
     >
-      {oraculo?.data.cartas.map(
-        (card, index) =>
-          index === showIndex && (
-            <div
-              style={{
-                width: "220px",
-                textAlign: "center",
-              }}
-              key={`image-${index}`}
-            >
-              <PrismicNextImage alt="" field={card.carta} width={800} />
-            </div>
-          )
+      {barajar && (
+        <div
+          style={{
+            width: "220px",
+            height: "340px",
+            textAlign: "center",
+          }}
+          key={`barajar`}
+          className="barajar"
+        >
+          <img src="/carta.jpeg" width="100%" className="carta-1" />
+          <img src="/carta.jpeg" width="100%" className="carta-2" />
+        </div>
       )}
+
+      {!barajar && oraculo && (
+        <div
+          style={{
+            width: "220px",
+            height: "340px",
+            textAlign: "center",
+          }}
+          key={`image-0`}
+        >
+          <PrismicNextImage
+            alt=""
+            field={oraculo?.data?.cartas[showIndex].carta}
+            width={800}
+          />
+        </div>
+      )}
+
       <div>
         <button
           onClick={stop}
@@ -86,13 +87,13 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
             color: "white",
             width: "220px",
 
-            background: isStop
+            background: !barajar
               ? "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)"
               : "linear-gradient(19deg, rgba(0,36,17,1) 0%, rgba(9,121,30,1) 35%, rgba(7,255,0,1) 100%)",
           }}
         >
           <Marquee>
-            {isStop ? "COMENZAR ORACULO NUEVAMENTE" : "OBTENER UNA CARTA"}
+            {!barajar ? "COMENZAR ORACULO NUEVAMENTE" : "OBTENER UNA CARTA"}
           </Marquee>
         </button>
       </div>

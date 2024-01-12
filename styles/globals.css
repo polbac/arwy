@@ -283,3 +283,40 @@ a {
     transform: translate(5%, 0);
   }
 }
+
+.barajar {
+  position: relative;
+}
+
+.barajar img {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.carta-1 {
+  animation: barajar-1 1s infinite;
+}
+
+.carta-2 {
+  animation: barajar-2 0.25s infinite;
+}
+
+@keyframes barajar-1 {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: yellow;
+  }
+}
+
+@keyframes barajar-2 {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}
