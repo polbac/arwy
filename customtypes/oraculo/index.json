@@ -16,6 +16,10 @@
             }
           }
         }
+      },
+      "carta_atras": {
+        "type": "Image",
+        "config": { "label": "carta atras", "constraint": {}, "thumbnails": [] }
       }
     }
   }

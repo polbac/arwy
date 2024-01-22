@@ -437,6 +437,17 @@ interface OraculoDocumentData {
    *
    */
   cartas: prismicT.GroupField<Simplify<OraculoDocumentDataCartasItem>>;
+  /**
+   * carta atras field in *oraculo*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: oraculo.carta_atras
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  carta_atras: prismicT.ImageField<never>;
 }
 /**
  * Item in oraculo → cartas

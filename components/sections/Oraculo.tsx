@@ -53,8 +53,16 @@ export const Oraculo: FC<{ x: number; y: number; onClose: () => void }> = ({
           key={`barajar`}
           className="barajar"
         >
-          <img src="/carta.jpeg" width="100%" className="carta-1" />
-          <img src="/carta.jpeg" width="100%" className="carta-2" />
+          <img
+            src={oraculo?.data.carta_atras.url}
+            width="100%"
+            className="carta-1"
+          />
+          <img
+            src={oraculo?.data.carta_atras.url}
+            width="100%"
+            className="carta-2"
+          />
         </div>
       )}
 
