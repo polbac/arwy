@@ -54,12 +54,15 @@ export const Bio: FC<{ x: number; y: number; onClose: () => void }> = ({
           href={bio?.data.cv_file.url}
           style={{
             display: "inline-block",
-            padding: "20px",
+            padding: "10px",
           }}
         >
-          <img src="cv_icon.png" style={{ width: "50px" }} />
-          <br />
-          descargar cv
+          <p
+            style={{ color: "black", fontSize: "60px", margin: 0, padding: 0 }}
+          >
+            💎
+          </p>
+          <span style={{ color: "black" }}>download cv</span>
         </a>
       </div>
     </Window>
