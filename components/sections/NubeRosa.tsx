@@ -91,7 +91,7 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
               <div className="articleTitle">{nube.title}</div>
               <PrismicRichText
                 style={{ paddingLeft: "15px" }}
-                field={nube.text}
+                field={nube.texto}
               />
             </div>
           </div>

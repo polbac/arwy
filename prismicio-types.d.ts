@@ -399,15 +399,15 @@ export interface NubeRosaDocumentDataNubeRosaItem {
    */
   imagen: prismicT.ImageField<never>;
   /**
-   * text field in *nube rosa → nube_rosa*
+   * texto field in *nube rosa → nube_rosa*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: nube_rosa.nube_rosa[].text
+   * - **API ID Path**: nube_rosa.nube_rosa[].texto
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  text: prismicT.RichTextField;
+  texto: prismicT.RichTextField;
 }
 /**
  * nube rosa document from Prismic
