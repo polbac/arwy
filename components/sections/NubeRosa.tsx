@@ -88,10 +88,7 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
             </div>
 
             <div style={{ paddingLeft: "15px", flex: 1 }} className="label">
-              <div
-                className="articleTitle"
-                style={{ color: "pink !important" }}
-              >
+              <div className="articleTitle" style={{ color: "pink" }}>
                 {nube.title}
               </div>
               <PrismicRichText
