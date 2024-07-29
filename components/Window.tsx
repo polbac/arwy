@@ -1,7 +1,14 @@
 import { DestkopBrowser } from "@/context/desktopContext";
-import Marquee from "react-fast-marquee";
+
 import { getRandomXYPositions, getWindowPosition } from "@/utils/browser";
-import { FC, useContext, useEffect, useRef, useState } from "react";
+import {
+  FC,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Draggable from "react-draggable";
 
 const getMobileDetect = (userAgent: NavigatorID["userAgent"]) => {
@@ -53,7 +60,6 @@ const TITLE_CHAR_MAPPER = {
 };
 
 function asciiEffect(text: string): string {
-  console.log({ text });
   return (text || "")
     .split("")
     .map((s) => TITLE_CHAR_MAPPER[s.toLocaleLowerCase()] ?? s)
@@ -90,6 +96,7 @@ export const Window: FC<{
   data: unknown;
   color: string;
   subtitle?: JSX.Element;
+  resizeable?: boolean;
 }> = ({
   children,
   title,
@@ -101,13 +108,40 @@ export const Window: FC<{
   data,
   color,
   subtitle,
+  resizeable,
 }) => {
-  const { getNextZIndex } = useContext(DestkopBrowser);
+  const {
+    getNextZIndex,
+    mousePosition,
+    addMouseUpListHandler,
+    removeMouseUpListHandler,
+  } = useContext(DestkopBrowser);
   const ref = useRef();
+  const refSize = useRef();
   const [position, setPosition] = useState({
     x: 0,
     y: 0,
     zIndex: 0,
+  });
+  const [dynamicWindowSize, setDynamicWindowSize] = useState<
+    { width?: number; height?: number } | undefined
+  >();
+  const [shouldDrag, setShouldDrag] = useState(true);
+  const [resizeDirection, setResizeDirection] = useState<
+    "left" | "right" | "bottom"
+  >();
+  const [resizeStartPosition, setResizeStartPosition] = useState<{
+    x: number;
+    y: number;
+  }>({ x: 0, y: 0 });
+  const [resizeStartSize, setResizeStartSize] = useState<{
+    width: number;
+    height: number;
+  }>({ width: 0, height: 0 });
+  const [shouldResize, setShouldeResize] = useState<boolean>(false);
+  const [libPosition, setLibPosition] = useState<{ x: number; y: number }>({
+    y: 0,
+    y: 0,
   });
 
   const { isMobile } = useMobileDetect();
@@ -116,10 +150,58 @@ export const Window: FC<{
     () =>
       setPosition({
         ...getWindowPosition(x, y, windowSize),
-        zIndex: getNextZIndex(),
+        zIndex: getNextZIndex() + 1,
       }),
     []
   );
+
+  useEffect(() => {
+    const identifier = new Date().getTime().toString();
+
+    const onMouseUp = () => {
+      setShouldDrag(true);
+      setShouldeResize(false);
+    };
+
+    addMouseUpListHandler(onMouseUp, identifier);
+
+    return () => removeMouseUpListHandler(identifier);
+  }, []);
+
+  useEffect(() => {
+    if (shouldResize) {
+      let width = 0;
+      let height = 0;
+      let x = 0;
+
+      if (resizeDirection === "right") {
+        const diffWidth = mousePosition.x - resizeStartPosition.x;
+        width = resizeStartSize.width + diffWidth;
+
+        setDynamicWindowSize({ width });
+      }
+
+      if (resizeDirection === "bottom") {
+        const diffHeight = mousePosition.y - resizeStartPosition.y;
+        height = resizeStartSize.height + diffHeight;
+
+        setDynamicWindowSize({ height });
+      }
+
+      if (resizeDirection === "left") {
+        const diffWidth = mousePosition.x - resizeStartPosition.x;
+
+        width = resizeStartSize.width - diffWidth;
+
+        setPosition((p) => ({
+          ...p,
+          x: mousePosition.x,
+        }));
+
+        setDynamicWindowSize({ width });
+      }
+    }
+  }, [mousePosition, shouldResize]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -132,22 +214,72 @@ export const Window: FC<{
     return null;
   }
 
+  const handleMouseEnterResize =
+    (direction: "left" | "right" | "bottom") => () => {
+      setShouldDrag(false);
+      setResizeDirection(direction);
+    };
+
+  const handleMouseDownResize =
+    (direction: "left" | "right" | "bottom") =>
+    (event: { pageX: number; pageY: number }) => {
+      setShouldeResize(true);
+      setShouldDrag(false);
+      setResizeStartPosition({ x: event.pageX, y: event.pageY });
+      setResizeStartSize({
+        width: refSize.current?.offsetWidth,
+        height: refSize.current?.offsetHeight,
+      });
+    };
+
   return (
     <Draggable
       onStart={() => {
+        if (!shouldDrag) {
+          return;
+        }
+
         setPosition((p) => ({ ...p, zIndex: getNextZIndex() }));
       }}
       defaultPosition={{
         x: position.x,
         y: position.y,
       }}
-      disabled={isMobile()}
+      disabled={isMobile() || !shouldDrag}
+      position={position}
+      onDrag={(event, data) => {
+        if (!shouldDrag) {
+          return;
+        }
+
+        setPosition((p) => ({
+          /* @ts-ignore */
+          x: data.x,
+          /* @ts-ignore */
+          y: data.y,
+          zIndex: getNextZIndex(),
+        }));
+      }}
     >
       <article
         className={`${className} window`}
-        style={{ zIndex: position.zIndex, background: color }}
+        style={{
+          zIndex: position.zIndex,
+          background: color,
+          width: dynamicWindowSize ? `${dynamicWindowSize.width}px` : "auto",
+          height: dynamicWindowSize ? `${dynamicWindowSize.height}px` : "auto",
+        }}
+        ref={refSize}
       >
-        <div className="window-transition" ref={ref}>
+        <div
+          className="window-transition"
+          ref={ref}
+          style={{
+            height: dynamicWindowSize
+              ? `${dynamicWindowSize.height}px`
+              : "auto",
+          }}
+        >
           <div
             className="bar"
             style={{
@@ -169,6 +301,40 @@ export const Window: FC<{
             {data ? children : <>cargando...</>}
           </div>
         </div>
+        {resizeable && (
+          <>
+            <div
+              onMouseEnter={handleMouseEnterResize("left")}
+              onMouseOut={() => {
+                if (!shouldResize) {
+                  setShouldDrag(true);
+                }
+              }}
+              onMouseDown={handleMouseDownResize("left")}
+              className="resizeable-left"
+            ></div>
+            <div
+              onMouseEnter={handleMouseEnterResize("right")}
+              onMouseDown={handleMouseDownResize("right")}
+              onMouseOut={() => {
+                if (!shouldResize) {
+                  setShouldDrag(true);
+                }
+              }}
+              className="resizeable-right"
+            ></div>
+            <div
+              onMouseEnter={handleMouseEnterResize("bottom")}
+              onMouseDown={handleMouseDownResize("bottom")}
+              onMouseOut={() => {
+                if (!shouldResize) {
+                  setShouldDrag(true);
+                }
+              }}
+              className="resizeable-bottom"
+            ></div>
+          </>
+        )}
       </article>
     </Draggable>
   );

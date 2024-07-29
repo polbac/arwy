@@ -41,6 +41,7 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
           {nubeRosa?.data.nube_rosa.map((nube, index) => (
             <article
               key={index}
+              className="nuberosaItem"
               style={{
                 textAlign: "center",
                 width: "18%",
@@ -72,14 +73,17 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
             )
           }
           title={nube.titulo}
-          className={"music-detail medium-window"}
+          className={"music-detail medium-window "}
           windowSize={WindowSize.MEDIUM}
           x={x + random(200)}
           y={y + random(200)}
           data={[]}
           color={"black"}
         >
-          <div style={{ display: "flex", minWidth: "500px" }}>
+          <div
+            style={{ display: "flex", minWidth: "500px" }}
+            className="minWidthContainer"
+          >
             <div style={{ width: "50%" }}>
               <PrismicNextImage
                 field={nube.imagen}

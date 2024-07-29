@@ -22,7 +22,7 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
       return newList;
     });
   };
-  console.log("showZoom", showZoom);
+
   return (
     <>
       <Window
@@ -35,9 +35,13 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
         data={visiones}
         color={"rgb(208 124 152)"}
       >
-        <div style={{ display: "flex", flexWrap: "wrap", minWidth: "400px" }}>
+        <div
+          style={{ display: "flex", flexWrap: "wrap", minWidth: "400px" }}
+          className="minWidthContainer"
+        >
           {visiones?.data.visiones.map((vision, index) => (
             <article
+              className="visionesItem"
               key={index}
               style={{
                 textAlign: "center",
@@ -68,8 +72,9 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
             )
           }
           title={vision.titulo}
-          className={"music-detail medium-window"}
+          className={"music-detail medium-window resizeable"}
           windowSize={WindowSize.MEDIUM}
+          resizeable
           x={x + random(200)}
           y={y + random(200)}
           data={[]}
@@ -77,25 +82,26 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
         >
           {!showZoom && (
             <div
-              onClick={() => setShowZoom((sz) => !sz)}
               style={{
                 display: "flex",
-                width: "500px",
-                minHeight: "500px",
-                position: "relative",
+                width: "100%",
+                height: "100%",
                 overflow: "hidden",
               }}
             >
               <PrismicNextImage
                 field={vision.imagen}
-                style={{ height: "auto", width: "100%", cursor: "zoom-in" }}
+                style={{
+                  objectFit: "contain",
+                  height: "100%",
+                  width: "100%",
+                }}
               />
             </div>
           )}
 
           {showZoom && (
             <div
-              onClick={() => setShowZoom((sz) => !sz)}
               style={{
                 display: "flex",
                 width: "500px",

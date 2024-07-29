@@ -81,7 +81,7 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
           ))}
 
           {background?.data?.imagenes_jpeg?.map((jpg, index) => (
-            <FloatingJpg imagen={jpg} key={index} />
+            <FloatingJpg imagen={jpg} key={index} openWindow />
           ))}
 
           <Folder

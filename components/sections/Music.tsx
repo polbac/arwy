@@ -41,6 +41,7 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
           {music?.data.music.map((mus, index) => (
             <article
               key={index}
+              className="musicfolder"
               style={{
                 textAlign: "center",
                 width: "18%",
@@ -77,7 +78,10 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
           data={[]}
           color={"black"}
         >
-          <div style={{ display: "flex", minWidth: "500px" }}>
+          <div
+            style={{ display: "flex", minWidth: "500px" }}
+            className="minWidthContainer"
+          >
             <div style={{ width: "50%" }}>
               <PrismicNextImage
                 field={mus.image}

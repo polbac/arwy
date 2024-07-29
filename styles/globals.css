@@ -8,7 +8,11 @@
   font-smooth: auto;
   font-smooth: never;
   font-smooth: always;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
+
 a {
   cursor: crosshair;
 }
@@ -110,6 +114,8 @@ a {
 
 .window-transition {
   transition: transform 0.15s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .window-transition.in {
@@ -160,6 +166,12 @@ a {
   height: auto;
 }
 
+.resizeable .content {
+  max-width: initial !important;
+  max-height: initial !important;
+  flex: 1;
+}
+
 .medium-window {
   max-width: 640px;
   max-height: 340px;
@@ -199,12 +211,28 @@ a {
   body {
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden !important;
+  }
+  .visionesItem {
+    width: 35% !important;
+  }
+  .minWidthContainer {
+    min-width: initial !important;
+  }
+  .nuberosaItem {
+    width: 50% !important;
   }
   .window {
     top: 50% !important;
     left: 50% !important;
-    transform: translate(-50%, -50%) !important;
+    background: none !important;
+  }
+  .window .window-transition {
+    transform: translate(-50%, -50%);
+  }
+
+  .musicfolder {
+    width: 33.33% !important;
   }
 
   #cursor_icon {
@@ -212,7 +240,7 @@ a {
   }
 
   .medium-window {
-    width: 95%;
+    width: 95% !important;
   }
 
   .folder.react-draggable {
@@ -229,7 +257,39 @@ a {
     width: 100%;
   }
 }
+.resizeable .content {
+  max-height: initial !important;
 
+  max-width: initial;
+  max-height: initial;
+}
+.resizeable {
+  max-width: initial;
+  max-height: initial;
+}
+.resizeable-left,
+.resizeable-right {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  top: 0;
+  width: 5px;
+
+  cursor: col-resize;
+}
+.resizeable-right {
+  left: auto;
+  right: 0;
+}
+.resizeable-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 5px;
+
+  cursor: row-resize;
+}
 .noise {
   position: fixed;
   top: -50%;
