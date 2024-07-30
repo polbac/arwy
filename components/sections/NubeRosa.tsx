@@ -103,7 +103,7 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
           >
             <div style={{ width: "50%" }}></div>
 
-            <div style={{ paddingLeft: "15px", flex: 1 }} className="label">
+            <div style={{ width:"50%", paddingLeft: "15px", flex: 1 }} className="label">
               <div className="articleTitle" style={{ color: "pink" }}>
                 {nube.title}
               </div>
