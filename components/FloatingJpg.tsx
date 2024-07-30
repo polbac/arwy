@@ -87,7 +87,12 @@ export const FloatingJpg: FC<{
           >
             <PrismicNextImage
               field={imagen.imagen}
-              style={{ objectFit: "contain", height: "auto", width: "100%" }}
+              style={{
+                objectFit: "contain",
+                height: "auto",
+                width: "100%",
+                maxHeight: "80vh",
+              }}
             />
           </div>
         </Window>

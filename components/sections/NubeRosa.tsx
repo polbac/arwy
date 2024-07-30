@@ -81,15 +81,27 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
           color={"black"}
         >
           <div
-            style={{ display: "flex", minWidth: "500px" }}
+            style={{
+              position: "absolute",
+              left: "17px",
+              ...(nube.title === "𝑳𝒂 𝒇𝒖𝒆𝒏𝒕𝒆 𝒔𝒊𝒏 𝒇𝒊𝒏"
+                ? {}
+                : { top: "268px", transform: "translateY(-50%)" }),
+
+              width: "47%",
+            }}
+          >
+            <PrismicNextImage
+              field={nube.imagen}
+              style={{ height: "auto", width: "100%" }}
+            />
+          </div>
+
+          <div
+            style={{ display: "flex", minWidth: "500px", minHeight: "226px" }}
             className="minWidthContainer"
           >
-            <div style={{ width: "50%" }}>
-              <PrismicNextImage
-                field={nube.imagen}
-                style={{ height: "auto", width: "100%" }}
-              />
-            </div>
+            <div style={{ width: "50%" }}></div>
 
             <div style={{ paddingLeft: "15px", flex: 1 }} className="label">
               <div className="articleTitle" style={{ color: "pink" }}>

@@ -13,7 +13,6 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
 }) => {
   const [visiones] = useSinglePrismicDocument("vision");
   const [list, setList] = useState([]);
-  const [showZoom, setShowZoom] = useState(false);
 
   const handleClickText = (vision) => {
     setList((l) => {
@@ -76,55 +75,28 @@ export const Visiones: FC<{ x: number; y: number; onClose: () => void }> = ({
           windowSize={WindowSize.MEDIUM}
           resizeable
           x={x + random(200)}
-          y={y + random(200)}
+          y={-700}
           data={[]}
           color={"black"}
         >
-          {!showZoom && (
-            <div
+          <div
+            style={{
+              display: "flex",
+              width: "100%",
+              height: "100%",
+              overflow: "hidden",
+            }}
+          >
+            <PrismicNextImage
+              field={vision.imagen}
               style={{
-                display: "flex",
-                width: "100%",
+                objectFit: "contain",
                 height: "100%",
-                overflow: "hidden",
+                width: "100%",
+                maxHeight: "80vh",
               }}
-            >
-              <PrismicNextImage
-                field={vision.imagen}
-                style={{
-                  objectFit: "contain",
-                  height: "100%",
-                  width: "100%",
-                }}
-              />
-            </div>
-          )}
-
-          {showZoom && (
-            <div
-              style={{
-                display: "flex",
-                width: "500px",
-                minHeight: "500px",
-                position: "relative",
-                overflow: "scroll",
-              }}
-            >
-              <div
-                style={{
-                  width: "250%",
-                  height: "250%",
-                  position: "absolute",
-                  cursor: "zoom-out",
-                }}
-              >
-                <PrismicNextImage
-                  field={vision.imagen}
-                  style={{ height: "auto", width: "100%" }}
-                />
-              </div>
-            </div>
-          )}
+            />
+          </div>
         </Window>
       ))}
     </>
