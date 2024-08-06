@@ -19,6 +19,11 @@ export const Poesia: FC<{ x: number; y: number; onClose: () => void }> = ({
     });
   };
 
+  const orderedText = texts?.sort((a, b) =>
+    a.data.orden > b.data.orden ? 1 : -1
+  );
+  console.log({ orderedText });
+
   return (
     <>
       <Window
@@ -31,7 +36,7 @@ export const Poesia: FC<{ x: number; y: number; onClose: () => void }> = ({
         data={[]}
         color={"#ff9d00"}
       >
-        {texts?.map((text, index) => (
+        {orderedText?.map((text, index) => (
           <article key={`ti-${index}`}>
             <h6
               className="link articleTitle"

@@ -504,6 +504,17 @@ interface TextDocumentData {
    *
    */
   body: prismicT.RichTextField;
+  /**
+   * Orden field in *text*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.orden
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/number
+   *
+   */
+  orden: prismicT.NumberField;
 }
 /**
  * text document from Prismic

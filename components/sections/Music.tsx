@@ -37,14 +37,21 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
         data={music}
         color={"#ccffcc"}
       >
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            maxWidth: "450px",
+            justifyContent: "space-evenly",
+          }}
+        >
           {music?.data.music.map((mus, index) => (
             <article
               key={index}
               className="musicfolder"
               style={{
                 textAlign: "center",
-                width: "18%",
+                width: "29%",
                 marginBottom: "20px",
                 cursor: "pointer",
                 padding: "20px",
@@ -55,9 +62,22 @@ export const Music: FC<{ x: number; y: number; onClose: () => void }> = ({
 
               <div
                 className="label"
-                style={{ color: "black", fontSize: "13px" }}
+                style={{
+                  color: "black",
+                  fontSize: "13px",
+                  position: "relative",
+                }}
               >
-                <PrismicRichText field={mus.title} />
+                <p
+                  style={{
+                    position: "absolute",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    minWidth: "100px",
+                  }}
+                >
+                  {mus.title[0].text}
+                </p>
               </div>
             </article>
           ))}
