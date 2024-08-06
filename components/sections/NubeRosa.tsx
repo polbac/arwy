@@ -37,14 +37,21 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
         data={nubeRosa}
         color={"pink"}
       >
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            maxWidth: "400px",
+            justifyContent: "space-evenly",
+          }}
+        >
           {nubeRosa?.data.nube_rosa.map((nube, index) => (
             <article
               key={index}
               className="nuberosaItem"
               style={{
                 textAlign: "center",
-                width: "18%",
+                width: "30%",
                 marginBottom: "20px",
                 cursor: "pointer",
                 padding: "20px",
@@ -103,7 +110,10 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
           >
             <div style={{ width: "50%" }}></div>
 
-            <div style={{ width:"50%", paddingLeft: "15px", flex: 1 }} className="label">
+            <div
+              style={{ width: "50%", paddingLeft: "15px", flex: 1 }}
+              className="label"
+            >
               <div className="articleTitle" style={{ color: "pink" }}>
                 {nube.title}
               </div>
