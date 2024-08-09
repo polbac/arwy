@@ -5,6 +5,7 @@ import { Audiovisual } from "./sections/Audiovisual";
 import { FloatingImage } from "./FloatingImage";
 import { FloatingJpg } from "./FloatingJpg";
 import { Folder } from "./Folder";
+import { Moon } from "./Moon";
 import { useSinglePrismicDocument } from "@prismicio/react";
 import { Music } from "./sections/Music";
 import { Oraculo } from "./sections/Oraculo";
@@ -76,6 +77,7 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
         }}
       >
         <div className="desktop-container">
+          <Moon />
           {background?.data.imagenes_fotantes.map((flotante, index) => (
             <FloatingImage image={flotante} key={index} />
           ))}
