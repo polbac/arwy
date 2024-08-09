@@ -91,9 +91,6 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
             style={{
               position: "absolute",
               left: "17px",
-              ...(nube.title === "𝑳𝒂 𝒇𝒖𝒆𝒏𝒕𝒆 𝒔𝒊𝒏 𝒇𝒊𝒏"
-                ? {}
-                : { top: "268px", transform: "translateY(-50%)" }),
 
               width: "47%",
             }}
