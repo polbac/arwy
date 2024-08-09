@@ -92,6 +92,9 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
               position: "absolute",
               left: "17px",
 
+              top: "268px",
+              transform: "translateY(-50%)",
+
               width: "47%",
             }}
           >
