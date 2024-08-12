@@ -1,18 +1,20 @@
-const MOONS = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘", "🌑"];
-
-const moon = MOONS[Math.floor(Math.random() * (MOONS.length - 1))];
+import { Moon as MoonPhase, Hemisphere } from "lunarphase-js";
+import { useState } from "react";
 
 export const Moon = () => {
+  const [position] = useState([Math.random() * 100, Math.random() * 100]);
   return (
     <div
       style={{
         position: "absolute",
         fontSize: "70px",
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
+        top: `${position[0]}%`,
+        left: `${position[0]}%`,
       }}
     >
-      {moon}
+      {MoonPhase.lunarPhaseEmoji(new Date(), {
+        hemisphere: Hemisphere.SOUTHERN,
+      })}
     </div>
   );
 };
