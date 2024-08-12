@@ -13,6 +13,7 @@ export const Moon = () => {
         fontSize: "70px",
         top: `${position[0]}%`,
         left: `${position[0]}%`,
+        filter: "grayscale(1)",
       }}
     >
       {MoonPhase.lunarPhaseEmoji(new Date(), {
