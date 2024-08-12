@@ -1,8 +1,11 @@
 import { Moon as MoonPhase, Hemisphere } from "lunarphase-js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Moon = () => {
-  const [position] = useState([Math.random() * 100, Math.random() * 100]);
+  const [position, setPosition] = useState<Array<number>>([]);
+  useEffect(() => {
+    setPosition([Math.random() * 100, Math.random() * 100]);
+  }, []);
   return (
     <div
       style={{
