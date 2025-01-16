@@ -51,7 +51,7 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
               className="nuberosaItem"
               style={{
                 textAlign: "center",
-                width: "30%",
+                width: "25%",
                 marginBottom: "20px",
                 cursor: "pointer",
                 padding: "20px",
@@ -80,7 +80,7 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
             )
           }
           title={nube.titulo}
-          className={"music-detail medium-window "}
+          className={"music-detail medium-window nube-rosa-detail "}
           windowSize={WindowSize.MEDIUM}
           x={x + random(200)}
           y={y + random(200)}

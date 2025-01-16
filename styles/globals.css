@@ -396,3 +396,20 @@ img {
     left: 0%;
   }
 }
+
+.nube-rosa-detail a::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: pink;
+  position: absolute;
+  left: 0px;
+  top: 5px;
+  border-radius: 50%;
+}
+
+.nube-rosa-detail a {
+  text-decoration: underline;
+  position: relative;
+  padding-left: 15px;
+}
