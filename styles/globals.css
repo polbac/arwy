@@ -352,7 +352,7 @@ img {
   height: 200vh;
   background-repeat: repeat;
   animation: noise 1.2s steps(3) infinite both;
-  opacity: 0.999;
+  opacity: 0.25;
   visibility: visible;
   z-index: 99999999999;
   pointer-events: none;
