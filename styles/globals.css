@@ -306,6 +306,42 @@ img {
 
   cursor: row-resize;
 }
+@keyframes noise {
+  0% {
+    transform: translate3d(1%, -1%, 0);
+  }
+  10% {
+    transform: translate3d(-5%, -2%, 0);
+  }
+  20% {
+    transform: translate3d(10%, 5%, 0);
+  }
+  30% {
+    transform: translate3d(5%, -11%, 0);
+  }
+  40% {
+    transform: translate3d(-12%, -5%, 0);
+  }
+  50% {
+    transform: translate3d(10%, 9%, 0);
+  }
+  60% {
+    transform: translate3d(15%, 0, 0);
+  }
+  70% {
+    transform: translate3d(-10%, 8%, 0);
+  }
+  80% {
+    transform: translate3d(10%, 2%, 0);
+  }
+  90% {
+    transform: translate3d(1%, 5%, 0);
+  }
+  to {
+    transform: translate3d(0, 8%, 0);
+  }
+}
+
 .noise {
   position: fixed;
   top: -50%;
@@ -314,14 +350,13 @@ img {
   bottom: -50%;
   width: 200%;
   height: 200vh;
-  background: transparent
-    url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
   background-repeat: repeat;
-  animation: bg-animation 0.2s infinite;
+  animation: noise 1.2s steps(3) infinite both;
   opacity: 0.999;
   visibility: visible;
   z-index: 99999999999;
   pointer-events: none;
+  animation: noise 1.2s steps(3) infinite both;
 }
 
 @keyframes bg-animation {
