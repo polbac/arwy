@@ -12,6 +12,7 @@ import { Oraculo } from "./sections/Oraculo";
 import { Poesia } from "./sections/Poesia";
 import { Visiones } from "./sections/Visiones";
 import { NubeRosa } from "./sections/NubeRosa";
+import { Prensa } from "./sections/Prensa";
 
 enum BackgroundPosition {
   CENTER = "centrada",
@@ -125,6 +126,13 @@ export const Desktop: FC<{ children: React.ReactNode }> = ({ children }) => {
           <Folder
             label={"nube rosa"}
             Component={NubeRosa}
+            iconName="iconRosa"
+            color="pink"
+          />
+
+          <Folder
+            label={"prensa"}
+            Component={Prensa}
             iconName="iconRosa"
             color="pink"
           />

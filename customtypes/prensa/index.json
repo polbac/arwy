@@ -1,0 +1,26 @@
+{
+  "id": "prensa",
+  "label": "Prensa",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "prensa": {
+        "type": "Group",
+        "config": {
+          "label": "prensa",
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": { "label": "link", "placeholder": "", "select": null }
+            },
+            "texto": {
+              "type": "Text",
+              "config": { "label": "texto", "placeholder": "" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

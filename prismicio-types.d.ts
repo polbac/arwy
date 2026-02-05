@@ -480,6 +480,61 @@ export type OraculoDocument<Lang extends string = string> =
     "oraculo",
     Lang
   >;
+/** Content for Prensa documents */
+interface PrensaDocumentData {
+  /**
+   * prensa field in *Prensa*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prensa.prensa[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  prensa: prismicT.GroupField<Simplify<PrensaDocumentDataPrensaItem>>;
+}
+/**
+ * Item in Prensa → prensa
+ *
+ */
+export interface PrensaDocumentDataPrensaItem {
+  /**
+   * link field in *Prensa → prensa*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prensa.prensa[].link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismicT.LinkField;
+  /**
+   * texto field in *Prensa → prensa*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: prensa.prensa[].texto
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  texto: prismicT.KeyTextField;
+}
+/**
+ * Prensa document from Prismic
+ *
+ * - **API ID**: `prensa`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PrensaDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithoutUID<
+    Simplify<PrensaDocumentData>,
+    "prensa",
+    Lang
+  >;
 /** Content for text documents */
 interface TextDocumentData {
   /**
@@ -589,6 +644,7 @@ export type AllDocumentTypes =
   | MusicDocument
   | NubeRosaDocument
   | OraculoDocument
+  | PrensaDocument
   | TextDocument
   | VisionDocument;
 declare module "@prismicio/client" {
@@ -620,6 +676,9 @@ declare module "@prismicio/client" {
       OraculoDocumentData,
       OraculoDocumentDataCartasItem,
       OraculoDocument,
+      PrensaDocumentData,
+      PrensaDocumentDataPrensaItem,
+      PrensaDocument,
       TextDocumentData,
       TextDocument,
       VisionDocumentData,
