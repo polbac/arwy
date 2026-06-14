@@ -17,6 +17,14 @@
             "link": {
               "type": "Text",
               "config": { "label": "link", "placeholder": "" }
+            },
+            "imagen": {
+              "type": "Image",
+              "config": {
+                "label": "imagen",
+                "constraint": {},
+                "thumbnails": []
+              }
             }
           }
         }

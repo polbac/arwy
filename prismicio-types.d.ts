@@ -47,6 +47,16 @@ export interface AudiovisualDocumentDataAudiovisualItem {
    *
    */
   link: prismicT.KeyTextField;
+  /**
+   * imagen field in *audiovisual → audiovisual*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: audiovisual.audiovisual[].imagen
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  imagen: prismicT.ImageField<never>;
 }
 /**
  * audiovisual document from Prismic
@@ -292,6 +302,82 @@ export type DektopDocument<Lang extends string = string> =
   prismicT.PrismicDocumentWithoutUID<
     Simplify<DektopDocumentData>,
     "dektop",
+    Lang
+  >;
+/** Content for Dieño Sonoro documents */
+interface DienoSonoroDocumentData {
+  /**
+   * titulo seccion field in *Dieño Sonoro*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dieno_sonoro.titulo_seccion
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  titulo_seccion: prismicT.RichTextField;
+  /**
+   * items field in *Dieño Sonoro*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dieno_sonoro.items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  items: prismicT.GroupField<Simplify<DienoSonoroDocumentDataItemsItem>>;
+}
+/**
+ * Item in Dieño Sonoro → items
+ *
+ */
+export interface DienoSonoroDocumentDataItemsItem {
+  /**
+   * titulo field in *Dieño Sonoro → items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dieno_sonoro.items[].titulo
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  titulo: prismicT.RichTextField;
+  /**
+   * imagen field in *Dieño Sonoro → items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dieno_sonoro.items[].imagen
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  imagen: prismicT.ImageField<never>;
+  /**
+   * link field in *Dieño Sonoro → items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dieno_sonoro.items[].link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismicT.LinkField;
+}
+/**
+ * Dieño Sonoro document from Prismic
+ *
+ * - **API ID**: `dieno_sonoro`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type DienoSonoroDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithoutUID<
+    Simplify<DienoSonoroDocumentData>,
+    "dieno_sonoro",
     Lang
   >;
 /** Content for music documents */
@@ -641,6 +727,7 @@ export type AllDocumentTypes =
   | AudiovisualDocument
   | BioDocument
   | DektopDocument
+  | DienoSonoroDocument
   | MusicDocument
   | NubeRosaDocument
   | OraculoDocument
@@ -667,6 +754,9 @@ declare module "@prismicio/client" {
       DektopDocumentDataImagenesFotantesItem,
       DektopDocumentDataImagenesJpegItem,
       DektopDocument,
+      DienoSonoroDocumentData,
+      DienoSonoroDocumentDataItemsItem,
+      DienoSonoroDocument,
       MusicDocumentData,
       MusicDocumentDataMusicItem,
       MusicDocument,

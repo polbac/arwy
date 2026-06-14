@@ -1,0 +1,48 @@
+{
+  "id": "dieno_sonoro",
+  "label": "Dieño Sonoro",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "titulo_seccion": {
+        "type": "StructuredText",
+        "config": {
+          "label": "titulo seccion",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "items": {
+        "type": "Group",
+        "config": {
+          "label": "items",
+          "fields": {
+            "titulo": {
+              "type": "StructuredText",
+              "config": {
+                "label": "titulo",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "imagen": {
+              "type": "Image",
+              "config": {
+                "label": "imagen",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": { "label": "link", "placeholder": "", "select": null }
+            }
+          }
+        }
+      }
+    }
+  }
+}
