@@ -3,6 +3,8 @@ import { WindowSize, getWindowSize } from "@/components/Window";
 const MARGIN = 15;
 const FOLDER_WIDTH = 100;
 const FOLDER_HEIGHT = 250;
+const MOBILE_BREAKPOINT = 760;
+const MOBILE_LARGE_WINDOW_WIDTH_RATIO = 0.95;
 
 export function getRandomXYPositions(): { x: number; y: number } {
   if (typeof window === "undefined") {
@@ -30,9 +32,19 @@ export function getWindowPosition(
 
   const browserWidth = window.innerWidth;
   const browserHeight = window.innerHeight;
+  const isMobile = browserWidth <= MOBILE_BREAKPOINT;
 
   const offsetX = (browserWidth / 2 - preferredX) / 20;
   const offsetY = (browserHeight / 2 - preferredY) / 10;
+
+  if (isMobile && windowSize === WindowSize.LARGE) {
+    const effectiveWidth = browserWidth * MOBILE_LARGE_WINDOW_WIDTH_RATIO;
+
+    return {
+      x: (browserWidth - effectiveWidth) / 2,
+      y: browserHeight / 2 - size.height / 2 - offsetY,
+    };
+  }
 
   let x = browserWidth / 2 - size.width / 2 - offsetX;
   let y = browserHeight / 2 - size.height / 2 - offsetY;

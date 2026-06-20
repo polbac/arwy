@@ -1,13 +1,15 @@
 import { FC, useState } from "react";
 import { Window, WindowSize } from "../Window";
 import {
-  PrismicLink,
   PrismicRichText,
-  useAllPrismicDocumentsByType,
   useSinglePrismicDocument,
 } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
+import { asText } from "@prismicio/helpers";
 import { random } from "@/utils/random";
+
+const DISENO_SONORO_TITLE =
+  "𝑫𝒊𝒔𝒆ñ𝒐 𝗦𝒐𝒏𝒐𝒓𝒐 + 𝑴ú𝒔𝒊𝒄𝒂 𝒐𝒓𝒊𝒈𝒊𝒏𝒂𝒍";
 
 export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
   x,
@@ -15,7 +17,9 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
   onClose,
 }) => {
   const [nubeRosa] = useSinglePrismicDocument("nube_rosa");
+  const [disenoSonoro] = useSinglePrismicDocument("dieno_sonoro");
   const [list, setList] = useState([]);
+  const [showDisenoSonoro, setShowDisenoSonoro] = useState(false);
 
   const handleClickText = (nube) => {
     setList((l) => {
@@ -45,7 +49,30 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
             justifyContent: "space-evenly",
           }}
         >
-          {nubeRosa?.data.nube_rosa.map((nube, index) => (
+          <article
+            className="nuberosaItem"
+            style={{
+              textAlign: "center",
+              width: "25%",
+              marginBottom: "20px",
+              cursor: "pointer",
+              padding: "20px",
+            }}
+            onClick={() => setShowDisenoSonoro(true)}
+          >
+            <img src={`/iconFolder.png`} width="100%" />
+
+            <div
+              className="label"
+              style={{ color: "black", fontSize: "13px" }}
+            >
+              {DISENO_SONORO_TITLE}
+            </div>
+          </article>
+
+          {nubeRosa?.data.nube_rosa
+            .filter((nube) => nube.title !== DISENO_SONORO_TITLE)
+            .map((nube, index) => (
             <article
               key={index}
               className="nuberosaItem"
@@ -125,6 +152,40 @@ export const NubeRosa: FC<{ x: number; y: number; onClose: () => void }> = ({
           </div>
         </Window>
       ))}
+
+      {showDisenoSonoro && (
+        <Window
+          onClose={() => setShowDisenoSonoro(false)}
+          title={DISENO_SONORO_TITLE}
+          className={"visiones large-window nube-rosa-diseno-sonoro"}
+          windowSize={WindowSize.LARGE}
+          x={x + random(200)}
+          y={y + random(200)}
+          data={disenoSonoro}
+          color={"pink"}
+        >
+          <div className="audiovisual-grid">
+            {disenoSonoro?.data.items.map((item, index) => (
+              <a
+                key={index}
+                href={item.link?.url ?? undefined}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="audiovisual-item"
+              >
+                {item.imagen?.url ? (
+                  <PrismicNextImage field={item.imagen} />
+                ) : (
+                  <div className="audiovisual-item-placeholder" />
+                )}
+                <div className="audiovisual-item-title">
+                  {asText(item.titulo)}
+                </div>
+              </a>
+            ))}
+          </div>
+        </Window>
+      )}
     </>
   );
 };

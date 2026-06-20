@@ -196,6 +196,56 @@ img {
   border: 6px ridge #9605ff;
 }
 
+.large-window {
+  max-width: 960px;
+  max-height: 560px;
+}
+
+.large-window .content {
+  max-height: 520px;
+  overflow: auto;
+  border: 6px ridge #9605ff;
+}
+
+.audiovisual-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.audiovisual-item {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: crosshair;
+}
+
+.audiovisual-item:hover .audiovisual-item-title {
+  text-shadow: 5px 5px 5px pink;
+}
+
+.audiovisual-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.audiovisual-item-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.audiovisual-item-title {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.3;
+  color: black;
+  text-decoration: none;
+  font-family: helvetica, arial;
+}
+
 .desktop {
   width: 100vw;
   height: 100vh;
@@ -254,6 +304,20 @@ img {
 
   .medium-window {
     width: 95% !important;
+  }
+
+  .large-window {
+    width: 95% !important;
+    top: auto !important;
+    left: auto !important;
+  }
+
+  .large-window .window-transition {
+    transform: none;
+  }
+
+  .audiovisual-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .folder.react-draggable {

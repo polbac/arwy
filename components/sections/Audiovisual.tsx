@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Window, WindowSize } from "../Window";
-import { PrismicRichText, useSinglePrismicDocument } from "@prismicio/react";
+import { useSinglePrismicDocument } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 
 export const Audiovisual: FC<{ x: number; y: number; onClose: () => void }> = ({
@@ -14,8 +14,8 @@ export const Audiovisual: FC<{ x: number; y: number; onClose: () => void }> = ({
     <Window
       onClose={onClose}
       title="Audiovisual"
-      className={"audiovisual medium-window"}
-      windowSize={WindowSize.MEDIUM}
+      className={"audiovisual large-window"}
+      windowSize={WindowSize.LARGE}
       x={x}
       y={y}
       data={audiovisual}
@@ -28,19 +28,24 @@ export const Audiovisual: FC<{ x: number; y: number; onClose: () => void }> = ({
         </div>
       }
     >
-      <ul style={{ margin: "1rem", lineHeight: "30px" }}>
+      <div className="audiovisual-grid">
         {audiovisual?.data.audiovisual.map((item, index) => (
-          <li key={index}>
-            <a
-              href={item.link}
-              target="_blank"
-              style={{ textDecoration: "underline", color: "blue" }}
-            >
-              {item.titulo}
-            </a>
-          </li>
+          <a
+            key={index}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="audiovisual-item"
+          >
+            {item.imagen?.url ? (
+              <PrismicNextImage field={item.imagen} />
+            ) : (
+              <div className="audiovisual-item-placeholder" />
+            )}
+            <div className="audiovisual-item-title">{item.titulo}</div>
+          </a>
         ))}
-      </ul>
+      </div>
     </Window>
   );
 };
